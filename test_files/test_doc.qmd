@@ -1,0 +1,60 @@
+---
+title: "test_doc"
+date: "April 12, 2023"
+format:
+  pdf: 
+    documentclass: scrartcl
+    prefer-html: true
+  beamer: 
+    documentclass: scrartcl
+    prefer-html: true
+  html: default
+  revealjs: default
+  docx:
+    documentclass: scrartcl
+    prefer-html: true
+---
+
+## Quarto
+
+Quarto enables you to weave together content and executable code into a finished document. To learn more about Quarto see <https://quarto.org>.
+
+## Running Code
+
+When you click the **Render** button a document will be generated that includes both content and the output of embedded code. You can embed code like this:
+
+```{r}
+1 + 1
+```
+
+\newpage
+
+You can add options to executable code like this
+
+```{r}
+data <- dplyr::sample_n(iris, 5)
+
+devtools::load_all()
+format_table(
+  data = data,
+  format_out = "html",
+  font_size = 25
+  )
+```
+
+# Table 1
+
+```{r}
+tbl1 <- tableone::CreateTableOne(
+  data = iris
+  )
+
+format_table(
+  data = tbl1,
+  format_out = "html",
+  font_size = 18
+  )
+```
+
+
+END
