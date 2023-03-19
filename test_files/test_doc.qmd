@@ -3,15 +3,14 @@ title: "test_doc"
 date: "April 12, 2023"
 format:
   pdf: 
-    documentclass: scrartcl
+    documentclass: article
     prefer-html: true
   beamer: 
-    documentclass: scrartcl
     prefer-html: true
   html: default
   revealjs: default
   docx:
-    documentclass: scrartcl
+    documentclass: article
     prefer-html: true
 ---
 
@@ -24,25 +23,48 @@ Quarto enables you to weave together content and executable code into a finished
 When you click the **Render** button a document will be generated that includes both content and the output of embedded code. You can embed code like this:
 
 ```{r}
-1 + 1
+library(dplyr)
+library(gt)
+library(tableone)
+library(kableExtra)
 ```
 
 \newpage
 
-You can add options to executable code like this
+# Datatable 
 
 ```{r}
-data <- dplyr::sample_n(iris, 5)
+data <- dplyr::sample_n(iris, 30)
 
 devtools::load_all()
 format_table(
   data = data,
-  format_out = "html",
-  font_size = 25
+  font_size = 18,
+  caption = "Test"
   )
 ```
 
+# Datatable (latex test)
+
+```{r}
+data <- dplyr::sample_n(iris, 30)
+
+devtools::load_all()
+format_table(
+  data = data,
+  font_size = 18,
+  caption = "Test",
+  format = "latex"
+  ) %>% 
+  kableExtra::kable_styling(
+      latex_options = c("repeat_header"),
+      repeat_header_continued = "\\textit{(Continued on next page...)}"
+      )
+```
+
 # Table 1
+
+`kableExtra`
 
 ```{r}
 tbl1 <- tableone::CreateTableOne(
@@ -51,10 +73,7 @@ tbl1 <- tableone::CreateTableOne(
 
 format_table(
   data = tbl1,
-  format_out = "html",
-  font_size = 18
-  )
+  ) %>% kableExtra::kable_styling(font_size = 5)
 ```
-
 
 END

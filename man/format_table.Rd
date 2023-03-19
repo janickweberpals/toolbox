@@ -4,16 +4,24 @@
 \alias{format_table}
 \title{Creates pretty formatted tables with few lines of code for both html and pdfs}
 \usage{
-format_table(data = NULL, format_out = "html", font_size = 16, caption = NULL)
+format_table(
+  data = NULL,
+  col_bold = FALSE,
+  font_size = 15,
+  caption = NULL,
+  ...
+)
 }
 \arguments{
 \item{data}{dataframe, tibble or tableone object with table content}
 
-\item{format_out}{character, one of "html" or "latex" to choose from for optimized output}
+\item{col_bold}{should first column be printed bold}
 
 \item{font_size}{numeric, font size of table}
 
 \item{caption}{string, if table caption is desired}
+
+\item{...}{more parameters passed on}
 }
 \value{
 returns a pretty table formatted for html or latex
