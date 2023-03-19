@@ -9,6 +9,7 @@
 <link href="test_doc_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.2.269">
 
+  <meta name="author" content="Janick Weberpals, RPh, PhD">
   <title>test_doc</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -320,6 +321,27 @@
   
   <script src="test_doc_files/libs/kePrint-0.0.1/kePrint.js"></script>
   <link href="test_doc_files/libs/lightable-0.0.1/lightable.css" rel="stylesheet">
+  <script src="test_doc_files/libs/htmlwidgets-1.6.2/htmlwidgets.js"></script>
+  <link href="test_doc_files/libs/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet">
+  <script src="test_doc_files/libs/datatables-binding-0.27/datatables.js"></script>
+  <script src="test_doc_files/libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+  <link href="test_doc_files/libs/dt-core-1.12.1/css/jquery.dataTables.min.css" rel="stylesheet">
+  <link href="test_doc_files/libs/dt-core-1.12.1/css/jquery.dataTables.extra.css" rel="stylesheet">
+  <script src="test_doc_files/libs/dt-core-1.12.1/js/jquery.dataTables.min.js"></script>
+  <script src="test_doc_files/libs/jszip-1.12.1/jszip.min.js"></script>
+  <script src="test_doc_files/libs/pdfmake-1.12.1/pdfmake.js"></script>
+  <script src="test_doc_files/libs/pdfmake-1.12.1/vfs_fonts.js"></script>
+  <link href="test_doc_files/libs/dt-ext-buttons-1.12.1/css/buttons.dataTables.min.css" rel="stylesheet">
+  <script src="test_doc_files/libs/dt-ext-buttons-1.12.1/js/dataTables.buttons.min.js"></script>
+  <script src="test_doc_files/libs/dt-ext-buttons-1.12.1/js/buttons.html5.min.js"></script>
+  <script src="test_doc_files/libs/dt-ext-buttons-1.12.1/js/buttons.colVis.min.js"></script>
+  <script src="test_doc_files/libs/dt-ext-buttons-1.12.1/js/buttons.print.min.js"></script>
+  <link href="test_doc_files/libs/nouislider-7.0.10/jquery.nouislider.min.css" rel="stylesheet">
+  <script src="test_doc_files/libs/nouislider-7.0.10/jquery.nouislider.min.js"></script>
+  <link href="test_doc_files/libs/selectize-0.12.0/selectize.bootstrap3.css" rel="stylesheet">
+  <script src="test_doc_files/libs/selectize-0.12.0/selectize.min.js"></script>
+  <link href="test_doc_files/libs/crosstalk-1.2.0/css/crosstalk.min.css" rel="stylesheet">
+  <script src="test_doc_files/libs/crosstalk-1.2.0/js/crosstalk.min.js"></script>
 </head>
 <body class="quarto-light">
   <div class="reveal">
@@ -329,6 +351,17 @@
   <h1 class="title">test_doc</h1>
 
 <div class="quarto-title-authors">
+<div class="quarto-title-author">
+<div class="quarto-title-author-name">
+<a href="janickweberpals.github.io">Janick Weberpals, RPh, PhD</a> <a href="https://orcid.org/0000-0003-0404-7394" class="quarto-title-author-orcid"> <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA2ZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDo1N0NEMjA4MDI1MjA2ODExOTk0QzkzNTEzRjZEQTg1NyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDozM0NDOEJGNEZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDozM0NDOEJGM0ZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M1IE1hY2ludG9zaCI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOkZDN0YxMTc0MDcyMDY4MTE5NUZFRDc5MUM2MUUwNEREIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjU3Q0QyMDgwMjUyMDY4MTE5OTRDOTM1MTNGNkRBODU3Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+84NovQAAAR1JREFUeNpiZEADy85ZJgCpeCB2QJM6AMQLo4yOL0AWZETSqACk1gOxAQN+cAGIA4EGPQBxmJA0nwdpjjQ8xqArmczw5tMHXAaALDgP1QMxAGqzAAPxQACqh4ER6uf5MBlkm0X4EGayMfMw/Pr7Bd2gRBZogMFBrv01hisv5jLsv9nLAPIOMnjy8RDDyYctyAbFM2EJbRQw+aAWw/LzVgx7b+cwCHKqMhjJFCBLOzAR6+lXX84xnHjYyqAo5IUizkRCwIENQQckGSDGY4TVgAPEaraQr2a4/24bSuoExcJCfAEJihXkWDj3ZAKy9EJGaEo8T0QSxkjSwORsCAuDQCD+QILmD1A9kECEZgxDaEZhICIzGcIyEyOl2RkgwAAhkmC+eAm0TAAAAABJRU5ErkJggg=="></a>
+</div>
+<div class="quarto-title-author-email">
+<a href="mailto:jweberpals@bwh.harvard.edu">jweberpals@bwh.harvard.edu</a>
+</div>
+        <p class="quarto-title-affiliation">
+            Division of Pharmacoepidemiology and Pharmacoeconomics, Department of Medicine, Brigham and Women’s Hospital, Harvard Medical School
+          </p>
+    </div>
 </div>
 
   <p class="date">4/12/23</p>
@@ -345,13 +378,17 @@
 </div>
 <p></p>
 </section>
-<section id="datatable" class="title-slide slide level1 center">
-<h1>Datatable</h1>
+<section>
+<section id="format_table" class="title-slide slide level1 center">
+<h1><code>format_table</code></h1>
+
+</section>
+<section id="normal-data" class="slide level2">
+<h2>Normal data</h2>
 <div class="cell">
 <div class="cell-output-display">
 
-<table class=" lightable-classic lightable-hover" style="font-size: 18px; font-family: Minion; width: auto !important; margin-left: auto; margin-right: auto;">
-<caption style="font-size: initial !important;">Test</caption>
+<table class=" lightable-classic lightable-hover" style="font-size: 20px; font-family: Minion; width: auto !important; margin-left: auto; margin-right: auto;"><caption>Test table 1</caption>
  <thead>
   <tr>
    <th style="text-align:right;position: sticky; top:0; background-color: #FFFFFF;font-weight: bold;"> Sepal.Length </th>
@@ -364,213 +401,73 @@
 <tbody>
   <tr>
    <td style="text-align:right;"> 5.7 </td>
-   <td style="text-align:right;"> 4.4 </td>
-   <td style="text-align:right;"> 1.5 </td>
-   <td style="text-align:right;"> 0.4 </td>
-   <td style="text-align:left;"> setosa </td>
-  </tr>
-  <tr>
-   <td style="text-align:right;"> 5.5 </td>
-   <td style="text-align:right;"> 2.4 </td>
-   <td style="text-align:right;"> 3.7 </td>
-   <td style="text-align:right;"> 1.0 </td>
-   <td style="text-align:left;"> versicolor </td>
-  </tr>
-  <tr>
-   <td style="text-align:right;"> 5.6 </td>
-   <td style="text-align:right;"> 2.7 </td>
+   <td style="text-align:right;"> 2.9 </td>
    <td style="text-align:right;"> 4.2 </td>
    <td style="text-align:right;"> 1.3 </td>
    <td style="text-align:left;"> versicolor </td>
   </tr>
   <tr>
-   <td style="text-align:right;"> 6.8 </td>
-   <td style="text-align:right;"> 3.2 </td>
-   <td style="text-align:right;"> 5.9 </td>
-   <td style="text-align:right;"> 2.3 </td>
-   <td style="text-align:left;"> virginica </td>
-  </tr>
-  <tr>
-   <td style="text-align:right;"> 5.0 </td>
-   <td style="text-align:right;"> 3.4 </td>
-   <td style="text-align:right;"> 1.5 </td>
-   <td style="text-align:right;"> 0.2 </td>
-   <td style="text-align:left;"> setosa </td>
-  </tr>
-  <tr>
-   <td style="text-align:right;"> 4.4 </td>
-   <td style="text-align:right;"> 3.0 </td>
-   <td style="text-align:right;"> 1.3 </td>
-   <td style="text-align:right;"> 0.2 </td>
-   <td style="text-align:left;"> setosa </td>
-  </tr>
-  <tr>
-   <td style="text-align:right;"> 6.2 </td>
-   <td style="text-align:right;"> 2.2 </td>
-   <td style="text-align:right;"> 4.5 </td>
-   <td style="text-align:right;"> 1.5 </td>
-   <td style="text-align:left;"> versicolor </td>
-  </tr>
-  <tr>
-   <td style="text-align:right;"> 6.2 </td>
-   <td style="text-align:right;"> 2.8 </td>
-   <td style="text-align:right;"> 4.8 </td>
-   <td style="text-align:right;"> 1.8 </td>
-   <td style="text-align:left;"> virginica </td>
-  </tr>
-  <tr>
-   <td style="text-align:right;"> 7.4 </td>
-   <td style="text-align:right;"> 2.8 </td>
-   <td style="text-align:right;"> 6.1 </td>
-   <td style="text-align:right;"> 1.9 </td>
-   <td style="text-align:left;"> virginica </td>
-  </tr>
-  <tr>
-   <td style="text-align:right;"> 5.5 </td>
-   <td style="text-align:right;"> 2.6 </td>
-   <td style="text-align:right;"> 4.4 </td>
-   <td style="text-align:right;"> 1.2 </td>
-   <td style="text-align:left;"> versicolor </td>
-  </tr>
-  <tr>
-   <td style="text-align:right;"> 7.9 </td>
+   <td style="text-align:right;"> 5.7 </td>
    <td style="text-align:right;"> 3.8 </td>
-   <td style="text-align:right;"> 6.4 </td>
-   <td style="text-align:right;"> 2.0 </td>
-   <td style="text-align:left;"> virginica </td>
-  </tr>
-  <tr>
-   <td style="text-align:right;"> 6.3 </td>
-   <td style="text-align:right;"> 2.9 </td>
-   <td style="text-align:right;"> 5.6 </td>
-   <td style="text-align:right;"> 1.8 </td>
-   <td style="text-align:left;"> virginica </td>
-  </tr>
-  <tr>
-   <td style="text-align:right;"> 5.4 </td>
-   <td style="text-align:right;"> 3.9 </td>
    <td style="text-align:right;"> 1.7 </td>
-   <td style="text-align:right;"> 0.4 </td>
-   <td style="text-align:left;"> setosa </td>
-  </tr>
-  <tr>
-   <td style="text-align:right;"> 6.5 </td>
-   <td style="text-align:right;"> 3.0 </td>
-   <td style="text-align:right;"> 5.5 </td>
-   <td style="text-align:right;"> 1.8 </td>
-   <td style="text-align:left;"> virginica </td>
-  </tr>
-  <tr>
-   <td style="text-align:right;"> 7.6 </td>
-   <td style="text-align:right;"> 3.0 </td>
-   <td style="text-align:right;"> 6.6 </td>
-   <td style="text-align:right;"> 2.1 </td>
-   <td style="text-align:left;"> virginica </td>
-  </tr>
-  <tr>
-   <td style="text-align:right;"> 5.7 </td>
-   <td style="text-align:right;"> 3.0 </td>
-   <td style="text-align:right;"> 4.2 </td>
-   <td style="text-align:right;"> 1.2 </td>
-   <td style="text-align:left;"> versicolor </td>
-  </tr>
-  <tr>
-   <td style="text-align:right;"> 6.7 </td>
-   <td style="text-align:right;"> 2.5 </td>
-   <td style="text-align:right;"> 5.8 </td>
-   <td style="text-align:right;"> 1.8 </td>
-   <td style="text-align:left;"> virginica </td>
-  </tr>
-  <tr>
-   <td style="text-align:right;"> 6.3 </td>
-   <td style="text-align:right;"> 3.4 </td>
-   <td style="text-align:right;"> 5.6 </td>
-   <td style="text-align:right;"> 2.4 </td>
-   <td style="text-align:left;"> virginica </td>
-  </tr>
-  <tr>
-   <td style="text-align:right;"> 6.6 </td>
-   <td style="text-align:right;"> 2.9 </td>
-   <td style="text-align:right;"> 4.6 </td>
-   <td style="text-align:right;"> 1.3 </td>
-   <td style="text-align:left;"> versicolor </td>
-  </tr>
-  <tr>
-   <td style="text-align:right;"> 6.0 </td>
-   <td style="text-align:right;"> 2.7 </td>
-   <td style="text-align:right;"> 5.1 </td>
-   <td style="text-align:right;"> 1.6 </td>
-   <td style="text-align:left;"> versicolor </td>
-  </tr>
-  <tr>
-   <td style="text-align:right;"> 6.1 </td>
-   <td style="text-align:right;"> 3.0 </td>
-   <td style="text-align:right;"> 4.9 </td>
-   <td style="text-align:right;"> 1.8 </td>
-   <td style="text-align:left;"> virginica </td>
-  </tr>
-  <tr>
-   <td style="text-align:right;"> 5.0 </td>
-   <td style="text-align:right;"> 3.5 </td>
-   <td style="text-align:right;"> 1.6 </td>
-   <td style="text-align:right;"> 0.6 </td>
-   <td style="text-align:left;"> setosa </td>
-  </tr>
-  <tr>
-   <td style="text-align:right;"> 5.7 </td>
-   <td style="text-align:right;"> 2.8 </td>
-   <td style="text-align:right;"> 4.5 </td>
-   <td style="text-align:right;"> 1.3 </td>
-   <td style="text-align:left;"> versicolor </td>
-  </tr>
-  <tr>
-   <td style="text-align:right;"> 4.5 </td>
-   <td style="text-align:right;"> 2.3 </td>
-   <td style="text-align:right;"> 1.3 </td>
    <td style="text-align:right;"> 0.3 </td>
    <td style="text-align:left;"> setosa </td>
   </tr>
   <tr>
-   <td style="text-align:right;"> 7.7 </td>
-   <td style="text-align:right;"> 3.8 </td>
+   <td style="text-align:right;"> 6.2 </td>
+   <td style="text-align:right;"> 2.9 </td>
+   <td style="text-align:right;"> 4.3 </td>
+   <td style="text-align:right;"> 1.3 </td>
+   <td style="text-align:left;"> versicolor </td>
+  </tr>
+  <tr>
    <td style="text-align:right;"> 6.7 </td>
-   <td style="text-align:right;"> 2.2 </td>
-   <td style="text-align:left;"> virginica </td>
+   <td style="text-align:right;"> 3.0 </td>
+   <td style="text-align:right;"> 5.0 </td>
+   <td style="text-align:right;"> 1.7 </td>
+   <td style="text-align:left;"> versicolor </td>
   </tr>
   <tr>
    <td style="text-align:right;"> 5.1 </td>
-   <td style="text-align:right;"> 3.8 </td>
-   <td style="text-align:right;"> 1.6 </td>
-   <td style="text-align:right;"> 0.2 </td>
-   <td style="text-align:left;"> setosa </td>
-  </tr>
-  <tr>
-   <td style="text-align:right;"> 5.6 </td>
-   <td style="text-align:right;"> 3.0 </td>
-   <td style="text-align:right;"> 4.5 </td>
-   <td style="text-align:right;"> 1.5 </td>
-   <td style="text-align:left;"> versicolor </td>
-  </tr>
-  <tr>
-   <td style="text-align:right;"> 5.9 </td>
-   <td style="text-align:right;"> 3.2 </td>
-   <td style="text-align:right;"> 4.8 </td>
-   <td style="text-align:right;"> 1.8 </td>
-   <td style="text-align:left;"> versicolor </td>
-  </tr>
-  <tr>
-   <td style="text-align:right;"> 7.1 </td>
-   <td style="text-align:right;"> 3.0 </td>
-   <td style="text-align:right;"> 5.9 </td>
-   <td style="text-align:right;"> 2.1 </td>
-   <td style="text-align:left;"> virginica </td>
-  </tr>
-  <tr>
-   <td style="text-align:right;"> 5.0 </td>
-   <td style="text-align:right;"> 3.6 </td>
+   <td style="text-align:right;"> 3.5 </td>
    <td style="text-align:right;"> 1.4 </td>
    <td style="text-align:right;"> 0.2 </td>
    <td style="text-align:left;"> setosa </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 6.3 </td>
+   <td style="text-align:right;"> 2.9 </td>
+   <td style="text-align:right;"> 5.6 </td>
+   <td style="text-align:right;"> 1.8 </td>
+   <td style="text-align:left;"> virginica </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 7.2 </td>
+   <td style="text-align:right;"> 3.2 </td>
+   <td style="text-align:right;"> 6.0 </td>
+   <td style="text-align:right;"> 1.8 </td>
+   <td style="text-align:left;"> virginica </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 5.8 </td>
+   <td style="text-align:right;"> 2.7 </td>
+   <td style="text-align:right;"> 5.1 </td>
+   <td style="text-align:right;"> 1.9 </td>
+   <td style="text-align:left;"> virginica </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 6.1 </td>
+   <td style="text-align:right;"> 2.9 </td>
+   <td style="text-align:right;"> 4.7 </td>
+   <td style="text-align:right;"> 1.4 </td>
+   <td style="text-align:left;"> versicolor </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 6.4 </td>
+   <td style="text-align:right;"> 3.1 </td>
+   <td style="text-align:right;"> 5.5 </td>
+   <td style="text-align:right;"> 1.8 </td>
+   <td style="text-align:left;"> virginica </td>
   </tr>
 </tbody>
 </table>
@@ -578,14 +475,12 @@
 </div>
 </div>
 </section>
-
-<section id="table-1" class="title-slide slide level1 center">
-<h1>Table 1</h1>
-<p><code>kableExtra</code></p>
+<section id="table-1-with-format_table" class="slide level2">
+<h2>Table 1 with <code>format_table</code></h2>
 <div class="cell">
 <div class="cell-output-display">
 
-<table class=" lightable-classic lightable-hover" style="font-size: 18px; font-family: Minion; width: auto !important; margin-left: auto; margin-right: auto;">
+<table class=" lightable-classic lightable-hover" style="font-size: 20px; font-family: Minion; width: auto !important; margin-left: auto; margin-right: auto;">
  <thead>
   <tr>
    <th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;font-weight: bold;"> Variable </th>
@@ -634,11 +529,1459 @@
 
 </div>
 </div>
-<p>END</p>
+</section></section>
+<section>
+<section id="format_datatable" class="title-slide slide level1 center">
+<h1><code>format_datatable</code></h1>
+
+</section>
+<section id="datatable-without-column-filter" class="slide level2">
+<h2>Datatable without column filter</h2>
+<div class="cell">
+<div class="cell-output-display">
+
+<div class="datatables html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-6fc874c295258a8d9cee" style="width:100%;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-6fc874c295258a8d9cee">{"x":{"filter":"top","vertical":false,"filterHTML":"<tr>\n  <td data-type=\"number\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n    <div style=\"display: none;position: absolute;width: 200px;opacity: 1\">\n      <div data-min=\"5.1\" data-max=\"7.2\" data-scale=\"1\"><\/div>\n      <span style=\"float: left;\"><\/span>\n      <span style=\"float: right;\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"number\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n    <div style=\"display: none;position: absolute;width: 200px;opacity: 1\">\n      <div data-min=\"2.7\" data-max=\"3.8\" data-scale=\"1\"><\/div>\n      <span style=\"float: left;\"><\/span>\n      <span style=\"float: right;\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"number\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n    <div style=\"display: none;position: absolute;width: 200px;opacity: 1\">\n      <div data-min=\"1.4\" data-max=\"6\" data-scale=\"1\"><\/div>\n      <span style=\"float: left;\"><\/span>\n      <span style=\"float: right;\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"number\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n    <div style=\"display: none;position: absolute;width: 200px;opacity: 1\">\n      <div data-min=\"0.2\" data-max=\"1.9\" data-scale=\"1\"><\/div>\n      <span style=\"float: left;\"><\/span>\n      <span style=\"float: right;\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"factor\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n    <div style=\"width: 100%; display: none;\">\n      <select multiple=\"multiple\" style=\"width: 100%;\" data-options=\"[&quot;setosa&quot;,&quot;versicolor&quot;,&quot;virginica&quot;]\"><\/select>\n    <\/div>\n  <\/td>\n<\/tr>","extensions":["Buttons"],"data":[[5.7,5.7,6.2,6.7,5.1,6.3,7.2,5.8,6.1,6.4],[2.9,3.8,2.9,3,3.5,2.9,3.2,2.7,2.9,3.1],[4.2,1.7,4.3,5,1.4,5.6,6,5.1,4.7,5.5],[1.3,0.3,1.3,1.7,0.2,1.8,1.8,1.9,1.4,1.8],["versicolor","setosa","versicolor","versicolor","setosa","virginica","virginica","virginica","versicolor","virginica"]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th>Sepal.Length<\/th>\n      <th>Sepal.Width<\/th>\n      <th>Petal.Length<\/th>\n      <th>Petal.Width<\/th>\n      <th>Species<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"autoWidth":true,"dom":"Bfrtip","buttons":[{"extend":"colvis","columns":[]},{"extend":"colvisGroup","text":"Show All","show":":hidden"},{"extend":"collection","buttons":["csv","excel","pdf"],"text":"Download"}],"columnDefs":[{"visible":false,"targets":[]},{"className":"dt-right","targets":[0,1,2,3]}],"order":[],"orderClasses":false,"orderCellsTop":true},"selection":{"mode":"multiple","selected":null,"target":"row","selectable":null}},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+</section>
+<section id="datatable-with-column-filter" class="slide level2">
+<h2>Datatable with column filter</h2>
+<div class="cell">
+<div class="cell-output-display">
+
+<div class="datatables html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-39b27436a133d08a155a" style="width:100%;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-39b27436a133d08a155a">{"x":{"filter":"top","vertical":false,"filterHTML":"<tr>\n  <td data-type=\"number\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n    <div style=\"display: none;position: absolute;width: 200px;opacity: 1\">\n      <div data-min=\"5.1\" data-max=\"7.2\" data-scale=\"1\"><\/div>\n      <span style=\"float: left;\"><\/span>\n      <span style=\"float: right;\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"number\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n    <div style=\"display: none;position: absolute;width: 200px;opacity: 1\">\n      <div data-min=\"2.7\" data-max=\"3.8\" data-scale=\"1\"><\/div>\n      <span style=\"float: left;\"><\/span>\n      <span style=\"float: right;\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"number\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n    <div style=\"display: none;position: absolute;width: 200px;opacity: 1\">\n      <div data-min=\"1.4\" data-max=\"6\" data-scale=\"1\"><\/div>\n      <span style=\"float: left;\"><\/span>\n      <span style=\"float: right;\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"number\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n    <div style=\"display: none;position: absolute;width: 200px;opacity: 1\">\n      <div data-min=\"0.2\" data-max=\"1.9\" data-scale=\"1\"><\/div>\n      <span style=\"float: left;\"><\/span>\n      <span style=\"float: right;\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"factor\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n    <div style=\"width: 100%; display: none;\">\n      <select multiple=\"multiple\" style=\"width: 100%;\" data-options=\"[&quot;setosa&quot;,&quot;versicolor&quot;,&quot;virginica&quot;]\"><\/select>\n    <\/div>\n  <\/td>\n<\/tr>","extensions":["Buttons"],"data":[[5.7,5.7,6.2,6.7,5.1,6.3,7.2,5.8,6.1,6.4],[2.9,3.8,2.9,3,3.5,2.9,3.2,2.7,2.9,3.1],[4.2,1.7,4.3,5,1.4,5.6,6,5.1,4.7,5.5],[1.3,0.3,1.3,1.7,0.2,1.8,1.8,1.9,1.4,1.8],["versicolor","setosa","versicolor","versicolor","setosa","virginica","virginica","virginica","versicolor","virginica"]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th>Sepal.Length<\/th>\n      <th>Sepal.Width<\/th>\n      <th>Petal.Length<\/th>\n      <th>Petal.Width<\/th>\n      <th>Species<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"autoWidth":true,"dom":"Bfrtip","buttons":[{"extend":"colvis","columns":[0,2,3]},{"extend":"colvisGroup","text":"Show All","show":":hidden"},{"extend":"collection","buttons":["csv","excel","pdf"],"text":"Download"}],"columnDefs":[{"visible":false,"targets":[0,2,3]},{"className":"dt-right","targets":[0,1,2,3]}],"order":[],"orderClasses":false,"orderCellsTop":true},"selection":{"mode":"multiple","selected":null,"target":"row","selectable":null}},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+</section></section>
+<section>
+<section id="standard-functions" class="title-slide slide level1 center">
+<h1>Standard functions</h1>
+
+</section>
+<section id="kableextra-latex-test" class="slide level2">
+<h2>kableExtra (latex test)</h2>
+<div class="cell">
+<div class="cell-output-display">
+
+<table class="table" style="margin-left: auto; margin-right: auto;">
+<caption>Test table 2</caption>
+ <thead>
+  <tr>
+   <th style="text-align:right;"> Sepal.Length </th>
+   <th style="text-align:right;"> Sepal.Width </th>
+   <th style="text-align:right;"> Petal.Length </th>
+   <th style="text-align:right;"> Petal.Width </th>
+   <th style="text-align:left;"> Species </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:right;"> 6.4 </td>
+   <td style="text-align:right;"> 2.7 </td>
+   <td style="text-align:right;"> 5.3 </td>
+   <td style="text-align:right;"> 1.9 </td>
+   <td style="text-align:left;"> virginica </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 6.5 </td>
+   <td style="text-align:right;"> 3.0 </td>
+   <td style="text-align:right;"> 5.5 </td>
+   <td style="text-align:right;"> 1.8 </td>
+   <td style="text-align:left;"> virginica </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 4.9 </td>
+   <td style="text-align:right;"> 3.6 </td>
+   <td style="text-align:right;"> 1.4 </td>
+   <td style="text-align:right;"> 0.1 </td>
+   <td style="text-align:left;"> setosa </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 6.0 </td>
+   <td style="text-align:right;"> 3.0 </td>
+   <td style="text-align:right;"> 4.8 </td>
+   <td style="text-align:right;"> 1.8 </td>
+   <td style="text-align:left;"> virginica </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 6.9 </td>
+   <td style="text-align:right;"> 3.1 </td>
+   <td style="text-align:right;"> 5.1 </td>
+   <td style="text-align:right;"> 2.3 </td>
+   <td style="text-align:left;"> virginica </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 4.9 </td>
+   <td style="text-align:right;"> 2.4 </td>
+   <td style="text-align:right;"> 3.3 </td>
+   <td style="text-align:right;"> 1.0 </td>
+   <td style="text-align:left;"> versicolor </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 6.2 </td>
+   <td style="text-align:right;"> 3.4 </td>
+   <td style="text-align:right;"> 5.4 </td>
+   <td style="text-align:right;"> 2.3 </td>
+   <td style="text-align:left;"> virginica </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 6.5 </td>
+   <td style="text-align:right;"> 2.8 </td>
+   <td style="text-align:right;"> 4.6 </td>
+   <td style="text-align:right;"> 1.5 </td>
+   <td style="text-align:left;"> versicolor </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 6.4 </td>
+   <td style="text-align:right;"> 3.2 </td>
+   <td style="text-align:right;"> 4.5 </td>
+   <td style="text-align:right;"> 1.5 </td>
+   <td style="text-align:left;"> versicolor </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 6.3 </td>
+   <td style="text-align:right;"> 2.5 </td>
+   <td style="text-align:right;"> 5.0 </td>
+   <td style="text-align:right;"> 1.9 </td>
+   <td style="text-align:left;"> virginica </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 5.1 </td>
+   <td style="text-align:right;"> 3.7 </td>
+   <td style="text-align:right;"> 1.5 </td>
+   <td style="text-align:right;"> 0.4 </td>
+   <td style="text-align:left;"> setosa </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 5.5 </td>
+   <td style="text-align:right;"> 2.6 </td>
+   <td style="text-align:right;"> 4.4 </td>
+   <td style="text-align:right;"> 1.2 </td>
+   <td style="text-align:left;"> versicolor </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 5.1 </td>
+   <td style="text-align:right;"> 3.5 </td>
+   <td style="text-align:right;"> 1.4 </td>
+   <td style="text-align:right;"> 0.3 </td>
+   <td style="text-align:left;"> setosa </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 6.1 </td>
+   <td style="text-align:right;"> 2.6 </td>
+   <td style="text-align:right;"> 5.6 </td>
+   <td style="text-align:right;"> 1.4 </td>
+   <td style="text-align:left;"> virginica </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 5.5 </td>
+   <td style="text-align:right;"> 4.2 </td>
+   <td style="text-align:right;"> 1.4 </td>
+   <td style="text-align:right;"> 0.2 </td>
+   <td style="text-align:left;"> setosa </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 5.2 </td>
+   <td style="text-align:right;"> 3.4 </td>
+   <td style="text-align:right;"> 1.4 </td>
+   <td style="text-align:right;"> 0.2 </td>
+   <td style="text-align:left;"> setosa </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 5.3 </td>
+   <td style="text-align:right;"> 3.7 </td>
+   <td style="text-align:right;"> 1.5 </td>
+   <td style="text-align:right;"> 0.2 </td>
+   <td style="text-align:left;"> setosa </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 6.7 </td>
+   <td style="text-align:right;"> 2.5 </td>
+   <td style="text-align:right;"> 5.8 </td>
+   <td style="text-align:right;"> 1.8 </td>
+   <td style="text-align:left;"> virginica </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 6.2 </td>
+   <td style="text-align:right;"> 2.9 </td>
+   <td style="text-align:right;"> 4.3 </td>
+   <td style="text-align:right;"> 1.3 </td>
+   <td style="text-align:left;"> versicolor </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 5.1 </td>
+   <td style="text-align:right;"> 3.8 </td>
+   <td style="text-align:right;"> 1.6 </td>
+   <td style="text-align:right;"> 0.2 </td>
+   <td style="text-align:left;"> setosa </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 6.7 </td>
+   <td style="text-align:right;"> 3.3 </td>
+   <td style="text-align:right;"> 5.7 </td>
+   <td style="text-align:right;"> 2.1 </td>
+   <td style="text-align:left;"> virginica </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 5.4 </td>
+   <td style="text-align:right;"> 3.0 </td>
+   <td style="text-align:right;"> 4.5 </td>
+   <td style="text-align:right;"> 1.5 </td>
+   <td style="text-align:left;"> versicolor </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 4.6 </td>
+   <td style="text-align:right;"> 3.6 </td>
+   <td style="text-align:right;"> 1.0 </td>
+   <td style="text-align:right;"> 0.2 </td>
+   <td style="text-align:left;"> setosa </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 6.0 </td>
+   <td style="text-align:right;"> 2.2 </td>
+   <td style="text-align:right;"> 5.0 </td>
+   <td style="text-align:right;"> 1.5 </td>
+   <td style="text-align:left;"> virginica </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 6.8 </td>
+   <td style="text-align:right;"> 3.0 </td>
+   <td style="text-align:right;"> 5.5 </td>
+   <td style="text-align:right;"> 2.1 </td>
+   <td style="text-align:left;"> virginica </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 7.6 </td>
+   <td style="text-align:right;"> 3.0 </td>
+   <td style="text-align:right;"> 6.6 </td>
+   <td style="text-align:right;"> 2.1 </td>
+   <td style="text-align:left;"> virginica </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 4.4 </td>
+   <td style="text-align:right;"> 3.2 </td>
+   <td style="text-align:right;"> 1.3 </td>
+   <td style="text-align:right;"> 0.2 </td>
+   <td style="text-align:left;"> setosa </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 6.7 </td>
+   <td style="text-align:right;"> 3.1 </td>
+   <td style="text-align:right;"> 4.4 </td>
+   <td style="text-align:right;"> 1.4 </td>
+   <td style="text-align:left;"> versicolor </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 6.6 </td>
+   <td style="text-align:right;"> 3.0 </td>
+   <td style="text-align:right;"> 4.4 </td>
+   <td style="text-align:right;"> 1.4 </td>
+   <td style="text-align:left;"> versicolor </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 5.1 </td>
+   <td style="text-align:right;"> 3.8 </td>
+   <td style="text-align:right;"> 1.9 </td>
+   <td style="text-align:right;"> 0.4 </td>
+   <td style="text-align:left;"> setosa </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 6.9 </td>
+   <td style="text-align:right;"> 3.1 </td>
+   <td style="text-align:right;"> 4.9 </td>
+   <td style="text-align:right;"> 1.5 </td>
+   <td style="text-align:left;"> versicolor </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 6.5 </td>
+   <td style="text-align:right;"> 3.0 </td>
+   <td style="text-align:right;"> 5.8 </td>
+   <td style="text-align:right;"> 2.2 </td>
+   <td style="text-align:left;"> virginica </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 6.3 </td>
+   <td style="text-align:right;"> 2.3 </td>
+   <td style="text-align:right;"> 4.4 </td>
+   <td style="text-align:right;"> 1.3 </td>
+   <td style="text-align:left;"> versicolor </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 4.6 </td>
+   <td style="text-align:right;"> 3.1 </td>
+   <td style="text-align:right;"> 1.5 </td>
+   <td style="text-align:right;"> 0.2 </td>
+   <td style="text-align:left;"> setosa </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 6.4 </td>
+   <td style="text-align:right;"> 2.8 </td>
+   <td style="text-align:right;"> 5.6 </td>
+   <td style="text-align:right;"> 2.1 </td>
+   <td style="text-align:left;"> virginica </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 6.7 </td>
+   <td style="text-align:right;"> 3.1 </td>
+   <td style="text-align:right;"> 4.7 </td>
+   <td style="text-align:right;"> 1.5 </td>
+   <td style="text-align:left;"> versicolor </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 7.1 </td>
+   <td style="text-align:right;"> 3.0 </td>
+   <td style="text-align:right;"> 5.9 </td>
+   <td style="text-align:right;"> 2.1 </td>
+   <td style="text-align:left;"> virginica </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 4.3 </td>
+   <td style="text-align:right;"> 3.0 </td>
+   <td style="text-align:right;"> 1.1 </td>
+   <td style="text-align:right;"> 0.1 </td>
+   <td style="text-align:left;"> setosa </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 6.7 </td>
+   <td style="text-align:right;"> 3.0 </td>
+   <td style="text-align:right;"> 5.2 </td>
+   <td style="text-align:right;"> 2.3 </td>
+   <td style="text-align:left;"> virginica </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 4.6 </td>
+   <td style="text-align:right;"> 3.4 </td>
+   <td style="text-align:right;"> 1.4 </td>
+   <td style="text-align:right;"> 0.3 </td>
+   <td style="text-align:left;"> setosa </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 6.4 </td>
+   <td style="text-align:right;"> 3.1 </td>
+   <td style="text-align:right;"> 5.5 </td>
+   <td style="text-align:right;"> 1.8 </td>
+   <td style="text-align:left;"> virginica </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 5.9 </td>
+   <td style="text-align:right;"> 3.2 </td>
+   <td style="text-align:right;"> 4.8 </td>
+   <td style="text-align:right;"> 1.8 </td>
+   <td style="text-align:left;"> versicolor </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 5.6 </td>
+   <td style="text-align:right;"> 2.9 </td>
+   <td style="text-align:right;"> 3.6 </td>
+   <td style="text-align:right;"> 1.3 </td>
+   <td style="text-align:left;"> versicolor </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 7.2 </td>
+   <td style="text-align:right;"> 3.0 </td>
+   <td style="text-align:right;"> 5.8 </td>
+   <td style="text-align:right;"> 1.6 </td>
+   <td style="text-align:left;"> virginica </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 7.7 </td>
+   <td style="text-align:right;"> 3.8 </td>
+   <td style="text-align:right;"> 6.7 </td>
+   <td style="text-align:right;"> 2.2 </td>
+   <td style="text-align:left;"> virginica </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 7.0 </td>
+   <td style="text-align:right;"> 3.2 </td>
+   <td style="text-align:right;"> 4.7 </td>
+   <td style="text-align:right;"> 1.4 </td>
+   <td style="text-align:left;"> versicolor </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 5.7 </td>
+   <td style="text-align:right;"> 2.8 </td>
+   <td style="text-align:right;"> 4.5 </td>
+   <td style="text-align:right;"> 1.3 </td>
+   <td style="text-align:left;"> versicolor </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 5.0 </td>
+   <td style="text-align:right;"> 2.0 </td>
+   <td style="text-align:right;"> 3.5 </td>
+   <td style="text-align:right;"> 1.0 </td>
+   <td style="text-align:left;"> versicolor </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 5.6 </td>
+   <td style="text-align:right;"> 2.8 </td>
+   <td style="text-align:right;"> 4.9 </td>
+   <td style="text-align:right;"> 2.0 </td>
+   <td style="text-align:left;"> virginica </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 5.9 </td>
+   <td style="text-align:right;"> 3.0 </td>
+   <td style="text-align:right;"> 5.1 </td>
+   <td style="text-align:right;"> 1.8 </td>
+   <td style="text-align:left;"> virginica </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 4.5 </td>
+   <td style="text-align:right;"> 2.3 </td>
+   <td style="text-align:right;"> 1.3 </td>
+   <td style="text-align:right;"> 0.3 </td>
+   <td style="text-align:left;"> setosa </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 5.5 </td>
+   <td style="text-align:right;"> 2.4 </td>
+   <td style="text-align:right;"> 3.8 </td>
+   <td style="text-align:right;"> 1.1 </td>
+   <td style="text-align:left;"> versicolor </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 4.9 </td>
+   <td style="text-align:right;"> 2.5 </td>
+   <td style="text-align:right;"> 4.5 </td>
+   <td style="text-align:right;"> 1.7 </td>
+   <td style="text-align:left;"> virginica </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 4.7 </td>
+   <td style="text-align:right;"> 3.2 </td>
+   <td style="text-align:right;"> 1.6 </td>
+   <td style="text-align:right;"> 0.2 </td>
+   <td style="text-align:left;"> setosa </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 5.5 </td>
+   <td style="text-align:right;"> 2.4 </td>
+   <td style="text-align:right;"> 3.7 </td>
+   <td style="text-align:right;"> 1.0 </td>
+   <td style="text-align:left;"> versicolor </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 6.2 </td>
+   <td style="text-align:right;"> 2.2 </td>
+   <td style="text-align:right;"> 4.5 </td>
+   <td style="text-align:right;"> 1.5 </td>
+   <td style="text-align:left;"> versicolor </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 5.8 </td>
+   <td style="text-align:right;"> 4.0 </td>
+   <td style="text-align:right;"> 1.2 </td>
+   <td style="text-align:right;"> 0.2 </td>
+   <td style="text-align:left;"> setosa </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 5.0 </td>
+   <td style="text-align:right;"> 3.4 </td>
+   <td style="text-align:right;"> 1.5 </td>
+   <td style="text-align:right;"> 0.2 </td>
+   <td style="text-align:left;"> setosa </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 4.4 </td>
+   <td style="text-align:right;"> 2.9 </td>
+   <td style="text-align:right;"> 1.4 </td>
+   <td style="text-align:right;"> 0.2 </td>
+   <td style="text-align:left;"> setosa </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 5.9 </td>
+   <td style="text-align:right;"> 3.0 </td>
+   <td style="text-align:right;"> 4.2 </td>
+   <td style="text-align:right;"> 1.5 </td>
+   <td style="text-align:left;"> versicolor </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 6.1 </td>
+   <td style="text-align:right;"> 3.0 </td>
+   <td style="text-align:right;"> 4.6 </td>
+   <td style="text-align:right;"> 1.4 </td>
+   <td style="text-align:left;"> versicolor </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 4.8 </td>
+   <td style="text-align:right;"> 3.1 </td>
+   <td style="text-align:right;"> 1.6 </td>
+   <td style="text-align:right;"> 0.2 </td>
+   <td style="text-align:left;"> setosa </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 7.7 </td>
+   <td style="text-align:right;"> 2.6 </td>
+   <td style="text-align:right;"> 6.9 </td>
+   <td style="text-align:right;"> 2.3 </td>
+   <td style="text-align:left;"> virginica </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 7.3 </td>
+   <td style="text-align:right;"> 2.9 </td>
+   <td style="text-align:right;"> 6.3 </td>
+   <td style="text-align:right;"> 1.8 </td>
+   <td style="text-align:left;"> virginica </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 5.7 </td>
+   <td style="text-align:right;"> 2.5 </td>
+   <td style="text-align:right;"> 5.0 </td>
+   <td style="text-align:right;"> 2.0 </td>
+   <td style="text-align:left;"> virginica </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 5.0 </td>
+   <td style="text-align:right;"> 3.2 </td>
+   <td style="text-align:right;"> 1.2 </td>
+   <td style="text-align:right;"> 0.2 </td>
+   <td style="text-align:left;"> setosa </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 5.0 </td>
+   <td style="text-align:right;"> 3.5 </td>
+   <td style="text-align:right;"> 1.6 </td>
+   <td style="text-align:right;"> 0.6 </td>
+   <td style="text-align:left;"> setosa </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 7.4 </td>
+   <td style="text-align:right;"> 2.8 </td>
+   <td style="text-align:right;"> 6.1 </td>
+   <td style="text-align:right;"> 1.9 </td>
+   <td style="text-align:left;"> virginica </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 7.2 </td>
+   <td style="text-align:right;"> 3.2 </td>
+   <td style="text-align:right;"> 6.0 </td>
+   <td style="text-align:right;"> 1.8 </td>
+   <td style="text-align:left;"> virginica </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 6.0 </td>
+   <td style="text-align:right;"> 2.7 </td>
+   <td style="text-align:right;"> 5.1 </td>
+   <td style="text-align:right;"> 1.6 </td>
+   <td style="text-align:left;"> versicolor </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 6.7 </td>
+   <td style="text-align:right;"> 3.1 </td>
+   <td style="text-align:right;"> 5.6 </td>
+   <td style="text-align:right;"> 2.4 </td>
+   <td style="text-align:left;"> virginica </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 6.4 </td>
+   <td style="text-align:right;"> 3.2 </td>
+   <td style="text-align:right;"> 5.3 </td>
+   <td style="text-align:right;"> 2.3 </td>
+   <td style="text-align:left;"> virginica </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 5.4 </td>
+   <td style="text-align:right;"> 3.4 </td>
+   <td style="text-align:right;"> 1.5 </td>
+   <td style="text-align:right;"> 0.4 </td>
+   <td style="text-align:left;"> setosa </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 6.7 </td>
+   <td style="text-align:right;"> 3.3 </td>
+   <td style="text-align:right;"> 5.7 </td>
+   <td style="text-align:right;"> 2.5 </td>
+   <td style="text-align:left;"> virginica </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 7.7 </td>
+   <td style="text-align:right;"> 3.0 </td>
+   <td style="text-align:right;"> 6.1 </td>
+   <td style="text-align:right;"> 2.3 </td>
+   <td style="text-align:left;"> virginica </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 5.4 </td>
+   <td style="text-align:right;"> 3.9 </td>
+   <td style="text-align:right;"> 1.7 </td>
+   <td style="text-align:right;"> 0.4 </td>
+   <td style="text-align:left;"> setosa </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 6.1 </td>
+   <td style="text-align:right;"> 2.8 </td>
+   <td style="text-align:right;"> 4.7 </td>
+   <td style="text-align:right;"> 1.2 </td>
+   <td style="text-align:left;"> versicolor </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 5.0 </td>
+   <td style="text-align:right;"> 3.5 </td>
+   <td style="text-align:right;"> 1.3 </td>
+   <td style="text-align:right;"> 0.3 </td>
+   <td style="text-align:left;"> setosa </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 4.7 </td>
+   <td style="text-align:right;"> 3.2 </td>
+   <td style="text-align:right;"> 1.3 </td>
+   <td style="text-align:right;"> 0.2 </td>
+   <td style="text-align:left;"> setosa </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 6.4 </td>
+   <td style="text-align:right;"> 2.8 </td>
+   <td style="text-align:right;"> 5.6 </td>
+   <td style="text-align:right;"> 2.2 </td>
+   <td style="text-align:left;"> virginica </td>
+  </tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</section>
+<section id="gt" class="slide level2">
+<h2>gt</h2>
+<div class="cell">
+<div class="cell-output-display">
+
+<div id="zdpkljuhet" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>html {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
+}
+
+:where(#zdpkljuhet) .gt_table {
+  display: table;
+  border-collapse: collapse;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: auto;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+:where(#zdpkljuhet) .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+:where(#zdpkljuhet) .gt_caption {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+:where(#zdpkljuhet) .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+:where(#zdpkljuhet) .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 0;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+:where(#zdpkljuhet) .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+:where(#zdpkljuhet) .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+:where(#zdpkljuhet) .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+:where(#zdpkljuhet) .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+:where(#zdpkljuhet) .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+:where(#zdpkljuhet) .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+:where(#zdpkljuhet) .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+:where(#zdpkljuhet) .gt_group_heading {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  text-align: left;
+}
+
+:where(#zdpkljuhet) .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+:where(#zdpkljuhet) .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+:where(#zdpkljuhet) .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+:where(#zdpkljuhet) .gt_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+:where(#zdpkljuhet) .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+:where(#zdpkljuhet) .gt_stub_row_group {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: top;
+}
+
+:where(#zdpkljuhet) .gt_row_group_first td {
+  border-top-width: 2px;
+}
+
+:where(#zdpkljuhet) .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+:where(#zdpkljuhet) .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-color: #D3D3D3;
+}
+
+:where(#zdpkljuhet) .gt_first_summary_row.thick {
+  border-top-width: 2px;
+}
+
+:where(#zdpkljuhet) .gt_last_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+:where(#zdpkljuhet) .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+:where(#zdpkljuhet) .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+:where(#zdpkljuhet) .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+:where(#zdpkljuhet) .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+:where(#zdpkljuhet) .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+:where(#zdpkljuhet) .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding-left: 4px;
+  padding-right: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+:where(#zdpkljuhet) .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+:where(#zdpkljuhet) .gt_sourcenote {
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+:where(#zdpkljuhet) .gt_left {
+  text-align: left;
+}
+
+:where(#zdpkljuhet) .gt_center {
+  text-align: center;
+}
+
+:where(#zdpkljuhet) .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+:where(#zdpkljuhet) .gt_font_normal {
+  font-weight: normal;
+}
+
+:where(#zdpkljuhet) .gt_font_bold {
+  font-weight: bold;
+}
+
+:where(#zdpkljuhet) .gt_font_italic {
+  font-style: italic;
+}
+
+:where(#zdpkljuhet) .gt_super {
+  font-size: 65%;
+}
+
+:where(#zdpkljuhet) .gt_footnote_marks {
+  font-style: italic;
+  font-weight: normal;
+  font-size: 75%;
+  vertical-align: 0.4em;
+}
+
+:where(#zdpkljuhet) .gt_asterisk {
+  font-size: 100%;
+  vertical-align: 0;
+}
+
+:where(#zdpkljuhet) .gt_indent_1 {
+  text-indent: 5px;
+}
+
+:where(#zdpkljuhet) .gt_indent_2 {
+  text-indent: 10px;
+}
+
+:where(#zdpkljuhet) .gt_indent_3 {
+  text-indent: 15px;
+}
+
+:where(#zdpkljuhet) .gt_indent_4 {
+  text-indent: 20px;
+}
+
+:where(#zdpkljuhet) .gt_indent_5 {
+  text-indent: 25px;
+}
+</style>
+<table class="gt_table">
+  
+  <thead class="gt_col_headings">
+    <tr>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="Sepal.Length">Sepal.Length</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="Sepal.Width">Sepal.Width</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="Petal.Length">Petal.Length</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="Petal.Width">Petal.Width</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id="Species">Species</th>
+    </tr>
+  </thead>
+  <tbody class="gt_table_body">
+    <tr><td headers="Sepal.Length" class="gt_row gt_right">6.4</td>
+<td headers="Sepal.Width" class="gt_row gt_right">2.7</td>
+<td headers="Petal.Length" class="gt_row gt_right">5.3</td>
+<td headers="Petal.Width" class="gt_row gt_right">1.9</td>
+<td headers="Species" class="gt_row gt_center">virginica</td></tr>
+    <tr><td headers="Sepal.Length" class="gt_row gt_right">6.5</td>
+<td headers="Sepal.Width" class="gt_row gt_right">3.0</td>
+<td headers="Petal.Length" class="gt_row gt_right">5.5</td>
+<td headers="Petal.Width" class="gt_row gt_right">1.8</td>
+<td headers="Species" class="gt_row gt_center">virginica</td></tr>
+    <tr><td headers="Sepal.Length" class="gt_row gt_right">4.9</td>
+<td headers="Sepal.Width" class="gt_row gt_right">3.6</td>
+<td headers="Petal.Length" class="gt_row gt_right">1.4</td>
+<td headers="Petal.Width" class="gt_row gt_right">0.1</td>
+<td headers="Species" class="gt_row gt_center">setosa</td></tr>
+    <tr><td headers="Sepal.Length" class="gt_row gt_right">6.0</td>
+<td headers="Sepal.Width" class="gt_row gt_right">3.0</td>
+<td headers="Petal.Length" class="gt_row gt_right">4.8</td>
+<td headers="Petal.Width" class="gt_row gt_right">1.8</td>
+<td headers="Species" class="gt_row gt_center">virginica</td></tr>
+    <tr><td headers="Sepal.Length" class="gt_row gt_right">6.9</td>
+<td headers="Sepal.Width" class="gt_row gt_right">3.1</td>
+<td headers="Petal.Length" class="gt_row gt_right">5.1</td>
+<td headers="Petal.Width" class="gt_row gt_right">2.3</td>
+<td headers="Species" class="gt_row gt_center">virginica</td></tr>
+    <tr><td headers="Sepal.Length" class="gt_row gt_right">4.9</td>
+<td headers="Sepal.Width" class="gt_row gt_right">2.4</td>
+<td headers="Petal.Length" class="gt_row gt_right">3.3</td>
+<td headers="Petal.Width" class="gt_row gt_right">1.0</td>
+<td headers="Species" class="gt_row gt_center">versicolor</td></tr>
+    <tr><td headers="Sepal.Length" class="gt_row gt_right">6.2</td>
+<td headers="Sepal.Width" class="gt_row gt_right">3.4</td>
+<td headers="Petal.Length" class="gt_row gt_right">5.4</td>
+<td headers="Petal.Width" class="gt_row gt_right">2.3</td>
+<td headers="Species" class="gt_row gt_center">virginica</td></tr>
+    <tr><td headers="Sepal.Length" class="gt_row gt_right">6.5</td>
+<td headers="Sepal.Width" class="gt_row gt_right">2.8</td>
+<td headers="Petal.Length" class="gt_row gt_right">4.6</td>
+<td headers="Petal.Width" class="gt_row gt_right">1.5</td>
+<td headers="Species" class="gt_row gt_center">versicolor</td></tr>
+    <tr><td headers="Sepal.Length" class="gt_row gt_right">6.4</td>
+<td headers="Sepal.Width" class="gt_row gt_right">3.2</td>
+<td headers="Petal.Length" class="gt_row gt_right">4.5</td>
+<td headers="Petal.Width" class="gt_row gt_right">1.5</td>
+<td headers="Species" class="gt_row gt_center">versicolor</td></tr>
+    <tr><td headers="Sepal.Length" class="gt_row gt_right">6.3</td>
+<td headers="Sepal.Width" class="gt_row gt_right">2.5</td>
+<td headers="Petal.Length" class="gt_row gt_right">5.0</td>
+<td headers="Petal.Width" class="gt_row gt_right">1.9</td>
+<td headers="Species" class="gt_row gt_center">virginica</td></tr>
+    <tr><td headers="Sepal.Length" class="gt_row gt_right">5.1</td>
+<td headers="Sepal.Width" class="gt_row gt_right">3.7</td>
+<td headers="Petal.Length" class="gt_row gt_right">1.5</td>
+<td headers="Petal.Width" class="gt_row gt_right">0.4</td>
+<td headers="Species" class="gt_row gt_center">setosa</td></tr>
+    <tr><td headers="Sepal.Length" class="gt_row gt_right">5.5</td>
+<td headers="Sepal.Width" class="gt_row gt_right">2.6</td>
+<td headers="Petal.Length" class="gt_row gt_right">4.4</td>
+<td headers="Petal.Width" class="gt_row gt_right">1.2</td>
+<td headers="Species" class="gt_row gt_center">versicolor</td></tr>
+    <tr><td headers="Sepal.Length" class="gt_row gt_right">5.1</td>
+<td headers="Sepal.Width" class="gt_row gt_right">3.5</td>
+<td headers="Petal.Length" class="gt_row gt_right">1.4</td>
+<td headers="Petal.Width" class="gt_row gt_right">0.3</td>
+<td headers="Species" class="gt_row gt_center">setosa</td></tr>
+    <tr><td headers="Sepal.Length" class="gt_row gt_right">6.1</td>
+<td headers="Sepal.Width" class="gt_row gt_right">2.6</td>
+<td headers="Petal.Length" class="gt_row gt_right">5.6</td>
+<td headers="Petal.Width" class="gt_row gt_right">1.4</td>
+<td headers="Species" class="gt_row gt_center">virginica</td></tr>
+    <tr><td headers="Sepal.Length" class="gt_row gt_right">5.5</td>
+<td headers="Sepal.Width" class="gt_row gt_right">4.2</td>
+<td headers="Petal.Length" class="gt_row gt_right">1.4</td>
+<td headers="Petal.Width" class="gt_row gt_right">0.2</td>
+<td headers="Species" class="gt_row gt_center">setosa</td></tr>
+    <tr><td headers="Sepal.Length" class="gt_row gt_right">5.2</td>
+<td headers="Sepal.Width" class="gt_row gt_right">3.4</td>
+<td headers="Petal.Length" class="gt_row gt_right">1.4</td>
+<td headers="Petal.Width" class="gt_row gt_right">0.2</td>
+<td headers="Species" class="gt_row gt_center">setosa</td></tr>
+    <tr><td headers="Sepal.Length" class="gt_row gt_right">5.3</td>
+<td headers="Sepal.Width" class="gt_row gt_right">3.7</td>
+<td headers="Petal.Length" class="gt_row gt_right">1.5</td>
+<td headers="Petal.Width" class="gt_row gt_right">0.2</td>
+<td headers="Species" class="gt_row gt_center">setosa</td></tr>
+    <tr><td headers="Sepal.Length" class="gt_row gt_right">6.7</td>
+<td headers="Sepal.Width" class="gt_row gt_right">2.5</td>
+<td headers="Petal.Length" class="gt_row gt_right">5.8</td>
+<td headers="Petal.Width" class="gt_row gt_right">1.8</td>
+<td headers="Species" class="gt_row gt_center">virginica</td></tr>
+    <tr><td headers="Sepal.Length" class="gt_row gt_right">6.2</td>
+<td headers="Sepal.Width" class="gt_row gt_right">2.9</td>
+<td headers="Petal.Length" class="gt_row gt_right">4.3</td>
+<td headers="Petal.Width" class="gt_row gt_right">1.3</td>
+<td headers="Species" class="gt_row gt_center">versicolor</td></tr>
+    <tr><td headers="Sepal.Length" class="gt_row gt_right">5.1</td>
+<td headers="Sepal.Width" class="gt_row gt_right">3.8</td>
+<td headers="Petal.Length" class="gt_row gt_right">1.6</td>
+<td headers="Petal.Width" class="gt_row gt_right">0.2</td>
+<td headers="Species" class="gt_row gt_center">setosa</td></tr>
+    <tr><td headers="Sepal.Length" class="gt_row gt_right">6.7</td>
+<td headers="Sepal.Width" class="gt_row gt_right">3.3</td>
+<td headers="Petal.Length" class="gt_row gt_right">5.7</td>
+<td headers="Petal.Width" class="gt_row gt_right">2.1</td>
+<td headers="Species" class="gt_row gt_center">virginica</td></tr>
+    <tr><td headers="Sepal.Length" class="gt_row gt_right">5.4</td>
+<td headers="Sepal.Width" class="gt_row gt_right">3.0</td>
+<td headers="Petal.Length" class="gt_row gt_right">4.5</td>
+<td headers="Petal.Width" class="gt_row gt_right">1.5</td>
+<td headers="Species" class="gt_row gt_center">versicolor</td></tr>
+    <tr><td headers="Sepal.Length" class="gt_row gt_right">4.6</td>
+<td headers="Sepal.Width" class="gt_row gt_right">3.6</td>
+<td headers="Petal.Length" class="gt_row gt_right">1.0</td>
+<td headers="Petal.Width" class="gt_row gt_right">0.2</td>
+<td headers="Species" class="gt_row gt_center">setosa</td></tr>
+    <tr><td headers="Sepal.Length" class="gt_row gt_right">6.0</td>
+<td headers="Sepal.Width" class="gt_row gt_right">2.2</td>
+<td headers="Petal.Length" class="gt_row gt_right">5.0</td>
+<td headers="Petal.Width" class="gt_row gt_right">1.5</td>
+<td headers="Species" class="gt_row gt_center">virginica</td></tr>
+    <tr><td headers="Sepal.Length" class="gt_row gt_right">6.8</td>
+<td headers="Sepal.Width" class="gt_row gt_right">3.0</td>
+<td headers="Petal.Length" class="gt_row gt_right">5.5</td>
+<td headers="Petal.Width" class="gt_row gt_right">2.1</td>
+<td headers="Species" class="gt_row gt_center">virginica</td></tr>
+    <tr><td headers="Sepal.Length" class="gt_row gt_right">7.6</td>
+<td headers="Sepal.Width" class="gt_row gt_right">3.0</td>
+<td headers="Petal.Length" class="gt_row gt_right">6.6</td>
+<td headers="Petal.Width" class="gt_row gt_right">2.1</td>
+<td headers="Species" class="gt_row gt_center">virginica</td></tr>
+    <tr><td headers="Sepal.Length" class="gt_row gt_right">4.4</td>
+<td headers="Sepal.Width" class="gt_row gt_right">3.2</td>
+<td headers="Petal.Length" class="gt_row gt_right">1.3</td>
+<td headers="Petal.Width" class="gt_row gt_right">0.2</td>
+<td headers="Species" class="gt_row gt_center">setosa</td></tr>
+    <tr><td headers="Sepal.Length" class="gt_row gt_right">6.7</td>
+<td headers="Sepal.Width" class="gt_row gt_right">3.1</td>
+<td headers="Petal.Length" class="gt_row gt_right">4.4</td>
+<td headers="Petal.Width" class="gt_row gt_right">1.4</td>
+<td headers="Species" class="gt_row gt_center">versicolor</td></tr>
+    <tr><td headers="Sepal.Length" class="gt_row gt_right">6.6</td>
+<td headers="Sepal.Width" class="gt_row gt_right">3.0</td>
+<td headers="Petal.Length" class="gt_row gt_right">4.4</td>
+<td headers="Petal.Width" class="gt_row gt_right">1.4</td>
+<td headers="Species" class="gt_row gt_center">versicolor</td></tr>
+    <tr><td headers="Sepal.Length" class="gt_row gt_right">5.1</td>
+<td headers="Sepal.Width" class="gt_row gt_right">3.8</td>
+<td headers="Petal.Length" class="gt_row gt_right">1.9</td>
+<td headers="Petal.Width" class="gt_row gt_right">0.4</td>
+<td headers="Species" class="gt_row gt_center">setosa</td></tr>
+    <tr><td headers="Sepal.Length" class="gt_row gt_right">6.9</td>
+<td headers="Sepal.Width" class="gt_row gt_right">3.1</td>
+<td headers="Petal.Length" class="gt_row gt_right">4.9</td>
+<td headers="Petal.Width" class="gt_row gt_right">1.5</td>
+<td headers="Species" class="gt_row gt_center">versicolor</td></tr>
+    <tr><td headers="Sepal.Length" class="gt_row gt_right">6.5</td>
+<td headers="Sepal.Width" class="gt_row gt_right">3.0</td>
+<td headers="Petal.Length" class="gt_row gt_right">5.8</td>
+<td headers="Petal.Width" class="gt_row gt_right">2.2</td>
+<td headers="Species" class="gt_row gt_center">virginica</td></tr>
+    <tr><td headers="Sepal.Length" class="gt_row gt_right">6.3</td>
+<td headers="Sepal.Width" class="gt_row gt_right">2.3</td>
+<td headers="Petal.Length" class="gt_row gt_right">4.4</td>
+<td headers="Petal.Width" class="gt_row gt_right">1.3</td>
+<td headers="Species" class="gt_row gt_center">versicolor</td></tr>
+    <tr><td headers="Sepal.Length" class="gt_row gt_right">4.6</td>
+<td headers="Sepal.Width" class="gt_row gt_right">3.1</td>
+<td headers="Petal.Length" class="gt_row gt_right">1.5</td>
+<td headers="Petal.Width" class="gt_row gt_right">0.2</td>
+<td headers="Species" class="gt_row gt_center">setosa</td></tr>
+    <tr><td headers="Sepal.Length" class="gt_row gt_right">6.4</td>
+<td headers="Sepal.Width" class="gt_row gt_right">2.8</td>
+<td headers="Petal.Length" class="gt_row gt_right">5.6</td>
+<td headers="Petal.Width" class="gt_row gt_right">2.1</td>
+<td headers="Species" class="gt_row gt_center">virginica</td></tr>
+    <tr><td headers="Sepal.Length" class="gt_row gt_right">6.7</td>
+<td headers="Sepal.Width" class="gt_row gt_right">3.1</td>
+<td headers="Petal.Length" class="gt_row gt_right">4.7</td>
+<td headers="Petal.Width" class="gt_row gt_right">1.5</td>
+<td headers="Species" class="gt_row gt_center">versicolor</td></tr>
+    <tr><td headers="Sepal.Length" class="gt_row gt_right">7.1</td>
+<td headers="Sepal.Width" class="gt_row gt_right">3.0</td>
+<td headers="Petal.Length" class="gt_row gt_right">5.9</td>
+<td headers="Petal.Width" class="gt_row gt_right">2.1</td>
+<td headers="Species" class="gt_row gt_center">virginica</td></tr>
+    <tr><td headers="Sepal.Length" class="gt_row gt_right">4.3</td>
+<td headers="Sepal.Width" class="gt_row gt_right">3.0</td>
+<td headers="Petal.Length" class="gt_row gt_right">1.1</td>
+<td headers="Petal.Width" class="gt_row gt_right">0.1</td>
+<td headers="Species" class="gt_row gt_center">setosa</td></tr>
+    <tr><td headers="Sepal.Length" class="gt_row gt_right">6.7</td>
+<td headers="Sepal.Width" class="gt_row gt_right">3.0</td>
+<td headers="Petal.Length" class="gt_row gt_right">5.2</td>
+<td headers="Petal.Width" class="gt_row gt_right">2.3</td>
+<td headers="Species" class="gt_row gt_center">virginica</td></tr>
+    <tr><td headers="Sepal.Length" class="gt_row gt_right">4.6</td>
+<td headers="Sepal.Width" class="gt_row gt_right">3.4</td>
+<td headers="Petal.Length" class="gt_row gt_right">1.4</td>
+<td headers="Petal.Width" class="gt_row gt_right">0.3</td>
+<td headers="Species" class="gt_row gt_center">setosa</td></tr>
+    <tr><td headers="Sepal.Length" class="gt_row gt_right">6.4</td>
+<td headers="Sepal.Width" class="gt_row gt_right">3.1</td>
+<td headers="Petal.Length" class="gt_row gt_right">5.5</td>
+<td headers="Petal.Width" class="gt_row gt_right">1.8</td>
+<td headers="Species" class="gt_row gt_center">virginica</td></tr>
+    <tr><td headers="Sepal.Length" class="gt_row gt_right">5.9</td>
+<td headers="Sepal.Width" class="gt_row gt_right">3.2</td>
+<td headers="Petal.Length" class="gt_row gt_right">4.8</td>
+<td headers="Petal.Width" class="gt_row gt_right">1.8</td>
+<td headers="Species" class="gt_row gt_center">versicolor</td></tr>
+    <tr><td headers="Sepal.Length" class="gt_row gt_right">5.6</td>
+<td headers="Sepal.Width" class="gt_row gt_right">2.9</td>
+<td headers="Petal.Length" class="gt_row gt_right">3.6</td>
+<td headers="Petal.Width" class="gt_row gt_right">1.3</td>
+<td headers="Species" class="gt_row gt_center">versicolor</td></tr>
+    <tr><td headers="Sepal.Length" class="gt_row gt_right">7.2</td>
+<td headers="Sepal.Width" class="gt_row gt_right">3.0</td>
+<td headers="Petal.Length" class="gt_row gt_right">5.8</td>
+<td headers="Petal.Width" class="gt_row gt_right">1.6</td>
+<td headers="Species" class="gt_row gt_center">virginica</td></tr>
+    <tr><td headers="Sepal.Length" class="gt_row gt_right">7.7</td>
+<td headers="Sepal.Width" class="gt_row gt_right">3.8</td>
+<td headers="Petal.Length" class="gt_row gt_right">6.7</td>
+<td headers="Petal.Width" class="gt_row gt_right">2.2</td>
+<td headers="Species" class="gt_row gt_center">virginica</td></tr>
+    <tr><td headers="Sepal.Length" class="gt_row gt_right">7.0</td>
+<td headers="Sepal.Width" class="gt_row gt_right">3.2</td>
+<td headers="Petal.Length" class="gt_row gt_right">4.7</td>
+<td headers="Petal.Width" class="gt_row gt_right">1.4</td>
+<td headers="Species" class="gt_row gt_center">versicolor</td></tr>
+    <tr><td headers="Sepal.Length" class="gt_row gt_right">5.7</td>
+<td headers="Sepal.Width" class="gt_row gt_right">2.8</td>
+<td headers="Petal.Length" class="gt_row gt_right">4.5</td>
+<td headers="Petal.Width" class="gt_row gt_right">1.3</td>
+<td headers="Species" class="gt_row gt_center">versicolor</td></tr>
+    <tr><td headers="Sepal.Length" class="gt_row gt_right">5.0</td>
+<td headers="Sepal.Width" class="gt_row gt_right">2.0</td>
+<td headers="Petal.Length" class="gt_row gt_right">3.5</td>
+<td headers="Petal.Width" class="gt_row gt_right">1.0</td>
+<td headers="Species" class="gt_row gt_center">versicolor</td></tr>
+    <tr><td headers="Sepal.Length" class="gt_row gt_right">5.6</td>
+<td headers="Sepal.Width" class="gt_row gt_right">2.8</td>
+<td headers="Petal.Length" class="gt_row gt_right">4.9</td>
+<td headers="Petal.Width" class="gt_row gt_right">2.0</td>
+<td headers="Species" class="gt_row gt_center">virginica</td></tr>
+    <tr><td headers="Sepal.Length" class="gt_row gt_right">5.9</td>
+<td headers="Sepal.Width" class="gt_row gt_right">3.0</td>
+<td headers="Petal.Length" class="gt_row gt_right">5.1</td>
+<td headers="Petal.Width" class="gt_row gt_right">1.8</td>
+<td headers="Species" class="gt_row gt_center">virginica</td></tr>
+    <tr><td headers="Sepal.Length" class="gt_row gt_right">4.5</td>
+<td headers="Sepal.Width" class="gt_row gt_right">2.3</td>
+<td headers="Petal.Length" class="gt_row gt_right">1.3</td>
+<td headers="Petal.Width" class="gt_row gt_right">0.3</td>
+<td headers="Species" class="gt_row gt_center">setosa</td></tr>
+    <tr><td headers="Sepal.Length" class="gt_row gt_right">5.5</td>
+<td headers="Sepal.Width" class="gt_row gt_right">2.4</td>
+<td headers="Petal.Length" class="gt_row gt_right">3.8</td>
+<td headers="Petal.Width" class="gt_row gt_right">1.1</td>
+<td headers="Species" class="gt_row gt_center">versicolor</td></tr>
+    <tr><td headers="Sepal.Length" class="gt_row gt_right">4.9</td>
+<td headers="Sepal.Width" class="gt_row gt_right">2.5</td>
+<td headers="Petal.Length" class="gt_row gt_right">4.5</td>
+<td headers="Petal.Width" class="gt_row gt_right">1.7</td>
+<td headers="Species" class="gt_row gt_center">virginica</td></tr>
+    <tr><td headers="Sepal.Length" class="gt_row gt_right">4.7</td>
+<td headers="Sepal.Width" class="gt_row gt_right">3.2</td>
+<td headers="Petal.Length" class="gt_row gt_right">1.6</td>
+<td headers="Petal.Width" class="gt_row gt_right">0.2</td>
+<td headers="Species" class="gt_row gt_center">setosa</td></tr>
+    <tr><td headers="Sepal.Length" class="gt_row gt_right">5.5</td>
+<td headers="Sepal.Width" class="gt_row gt_right">2.4</td>
+<td headers="Petal.Length" class="gt_row gt_right">3.7</td>
+<td headers="Petal.Width" class="gt_row gt_right">1.0</td>
+<td headers="Species" class="gt_row gt_center">versicolor</td></tr>
+    <tr><td headers="Sepal.Length" class="gt_row gt_right">6.2</td>
+<td headers="Sepal.Width" class="gt_row gt_right">2.2</td>
+<td headers="Petal.Length" class="gt_row gt_right">4.5</td>
+<td headers="Petal.Width" class="gt_row gt_right">1.5</td>
+<td headers="Species" class="gt_row gt_center">versicolor</td></tr>
+    <tr><td headers="Sepal.Length" class="gt_row gt_right">5.8</td>
+<td headers="Sepal.Width" class="gt_row gt_right">4.0</td>
+<td headers="Petal.Length" class="gt_row gt_right">1.2</td>
+<td headers="Petal.Width" class="gt_row gt_right">0.2</td>
+<td headers="Species" class="gt_row gt_center">setosa</td></tr>
+    <tr><td headers="Sepal.Length" class="gt_row gt_right">5.0</td>
+<td headers="Sepal.Width" class="gt_row gt_right">3.4</td>
+<td headers="Petal.Length" class="gt_row gt_right">1.5</td>
+<td headers="Petal.Width" class="gt_row gt_right">0.2</td>
+<td headers="Species" class="gt_row gt_center">setosa</td></tr>
+    <tr><td headers="Sepal.Length" class="gt_row gt_right">4.4</td>
+<td headers="Sepal.Width" class="gt_row gt_right">2.9</td>
+<td headers="Petal.Length" class="gt_row gt_right">1.4</td>
+<td headers="Petal.Width" class="gt_row gt_right">0.2</td>
+<td headers="Species" class="gt_row gt_center">setosa</td></tr>
+    <tr><td headers="Sepal.Length" class="gt_row gt_right">5.9</td>
+<td headers="Sepal.Width" class="gt_row gt_right">3.0</td>
+<td headers="Petal.Length" class="gt_row gt_right">4.2</td>
+<td headers="Petal.Width" class="gt_row gt_right">1.5</td>
+<td headers="Species" class="gt_row gt_center">versicolor</td></tr>
+    <tr><td headers="Sepal.Length" class="gt_row gt_right">6.1</td>
+<td headers="Sepal.Width" class="gt_row gt_right">3.0</td>
+<td headers="Petal.Length" class="gt_row gt_right">4.6</td>
+<td headers="Petal.Width" class="gt_row gt_right">1.4</td>
+<td headers="Species" class="gt_row gt_center">versicolor</td></tr>
+    <tr><td headers="Sepal.Length" class="gt_row gt_right">4.8</td>
+<td headers="Sepal.Width" class="gt_row gt_right">3.1</td>
+<td headers="Petal.Length" class="gt_row gt_right">1.6</td>
+<td headers="Petal.Width" class="gt_row gt_right">0.2</td>
+<td headers="Species" class="gt_row gt_center">setosa</td></tr>
+    <tr><td headers="Sepal.Length" class="gt_row gt_right">7.7</td>
+<td headers="Sepal.Width" class="gt_row gt_right">2.6</td>
+<td headers="Petal.Length" class="gt_row gt_right">6.9</td>
+<td headers="Petal.Width" class="gt_row gt_right">2.3</td>
+<td headers="Species" class="gt_row gt_center">virginica</td></tr>
+    <tr><td headers="Sepal.Length" class="gt_row gt_right">7.3</td>
+<td headers="Sepal.Width" class="gt_row gt_right">2.9</td>
+<td headers="Petal.Length" class="gt_row gt_right">6.3</td>
+<td headers="Petal.Width" class="gt_row gt_right">1.8</td>
+<td headers="Species" class="gt_row gt_center">virginica</td></tr>
+    <tr><td headers="Sepal.Length" class="gt_row gt_right">5.7</td>
+<td headers="Sepal.Width" class="gt_row gt_right">2.5</td>
+<td headers="Petal.Length" class="gt_row gt_right">5.0</td>
+<td headers="Petal.Width" class="gt_row gt_right">2.0</td>
+<td headers="Species" class="gt_row gt_center">virginica</td></tr>
+    <tr><td headers="Sepal.Length" class="gt_row gt_right">5.0</td>
+<td headers="Sepal.Width" class="gt_row gt_right">3.2</td>
+<td headers="Petal.Length" class="gt_row gt_right">1.2</td>
+<td headers="Petal.Width" class="gt_row gt_right">0.2</td>
+<td headers="Species" class="gt_row gt_center">setosa</td></tr>
+    <tr><td headers="Sepal.Length" class="gt_row gt_right">5.0</td>
+<td headers="Sepal.Width" class="gt_row gt_right">3.5</td>
+<td headers="Petal.Length" class="gt_row gt_right">1.6</td>
+<td headers="Petal.Width" class="gt_row gt_right">0.6</td>
+<td headers="Species" class="gt_row gt_center">setosa</td></tr>
+    <tr><td headers="Sepal.Length" class="gt_row gt_right">7.4</td>
+<td headers="Sepal.Width" class="gt_row gt_right">2.8</td>
+<td headers="Petal.Length" class="gt_row gt_right">6.1</td>
+<td headers="Petal.Width" class="gt_row gt_right">1.9</td>
+<td headers="Species" class="gt_row gt_center">virginica</td></tr>
+    <tr><td headers="Sepal.Length" class="gt_row gt_right">7.2</td>
+<td headers="Sepal.Width" class="gt_row gt_right">3.2</td>
+<td headers="Petal.Length" class="gt_row gt_right">6.0</td>
+<td headers="Petal.Width" class="gt_row gt_right">1.8</td>
+<td headers="Species" class="gt_row gt_center">virginica</td></tr>
+    <tr><td headers="Sepal.Length" class="gt_row gt_right">6.0</td>
+<td headers="Sepal.Width" class="gt_row gt_right">2.7</td>
+<td headers="Petal.Length" class="gt_row gt_right">5.1</td>
+<td headers="Petal.Width" class="gt_row gt_right">1.6</td>
+<td headers="Species" class="gt_row gt_center">versicolor</td></tr>
+    <tr><td headers="Sepal.Length" class="gt_row gt_right">6.7</td>
+<td headers="Sepal.Width" class="gt_row gt_right">3.1</td>
+<td headers="Petal.Length" class="gt_row gt_right">5.6</td>
+<td headers="Petal.Width" class="gt_row gt_right">2.4</td>
+<td headers="Species" class="gt_row gt_center">virginica</td></tr>
+    <tr><td headers="Sepal.Length" class="gt_row gt_right">6.4</td>
+<td headers="Sepal.Width" class="gt_row gt_right">3.2</td>
+<td headers="Petal.Length" class="gt_row gt_right">5.3</td>
+<td headers="Petal.Width" class="gt_row gt_right">2.3</td>
+<td headers="Species" class="gt_row gt_center">virginica</td></tr>
+    <tr><td headers="Sepal.Length" class="gt_row gt_right">5.4</td>
+<td headers="Sepal.Width" class="gt_row gt_right">3.4</td>
+<td headers="Petal.Length" class="gt_row gt_right">1.5</td>
+<td headers="Petal.Width" class="gt_row gt_right">0.4</td>
+<td headers="Species" class="gt_row gt_center">setosa</td></tr>
+    <tr><td headers="Sepal.Length" class="gt_row gt_right">6.7</td>
+<td headers="Sepal.Width" class="gt_row gt_right">3.3</td>
+<td headers="Petal.Length" class="gt_row gt_right">5.7</td>
+<td headers="Petal.Width" class="gt_row gt_right">2.5</td>
+<td headers="Species" class="gt_row gt_center">virginica</td></tr>
+    <tr><td headers="Sepal.Length" class="gt_row gt_right">7.7</td>
+<td headers="Sepal.Width" class="gt_row gt_right">3.0</td>
+<td headers="Petal.Length" class="gt_row gt_right">6.1</td>
+<td headers="Petal.Width" class="gt_row gt_right">2.3</td>
+<td headers="Species" class="gt_row gt_center">virginica</td></tr>
+    <tr><td headers="Sepal.Length" class="gt_row gt_right">5.4</td>
+<td headers="Sepal.Width" class="gt_row gt_right">3.9</td>
+<td headers="Petal.Length" class="gt_row gt_right">1.7</td>
+<td headers="Petal.Width" class="gt_row gt_right">0.4</td>
+<td headers="Species" class="gt_row gt_center">setosa</td></tr>
+    <tr><td headers="Sepal.Length" class="gt_row gt_right">6.1</td>
+<td headers="Sepal.Width" class="gt_row gt_right">2.8</td>
+<td headers="Petal.Length" class="gt_row gt_right">4.7</td>
+<td headers="Petal.Width" class="gt_row gt_right">1.2</td>
+<td headers="Species" class="gt_row gt_center">versicolor</td></tr>
+    <tr><td headers="Sepal.Length" class="gt_row gt_right">5.0</td>
+<td headers="Sepal.Width" class="gt_row gt_right">3.5</td>
+<td headers="Petal.Length" class="gt_row gt_right">1.3</td>
+<td headers="Petal.Width" class="gt_row gt_right">0.3</td>
+<td headers="Species" class="gt_row gt_center">setosa</td></tr>
+    <tr><td headers="Sepal.Length" class="gt_row gt_right">4.7</td>
+<td headers="Sepal.Width" class="gt_row gt_right">3.2</td>
+<td headers="Petal.Length" class="gt_row gt_right">1.3</td>
+<td headers="Petal.Width" class="gt_row gt_right">0.2</td>
+<td headers="Species" class="gt_row gt_center">setosa</td></tr>
+    <tr><td headers="Sepal.Length" class="gt_row gt_right">6.4</td>
+<td headers="Sepal.Width" class="gt_row gt_right">2.8</td>
+<td headers="Petal.Length" class="gt_row gt_right">5.6</td>
+<td headers="Petal.Width" class="gt_row gt_right">2.2</td>
+<td headers="Species" class="gt_row gt_center">virginica</td></tr>
+  </tbody>
+  
+  
+</table>
+</div>
+</div>
+</div>
 <div class="footer footer-default">
 
 </div>
-</section>
+</section></section>
     </div>
   </div>
 
