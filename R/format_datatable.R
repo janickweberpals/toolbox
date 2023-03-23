@@ -3,20 +3,13 @@
 #' @param data dataframe, tibble or tableone object with table content
 #' @param caption datatable caption
 #' @param col_names character vector of column names
-#' @param cols_show character vector of columns to show (other are hidden but can be selected)
+#' @param cols_show character vector of columns to show (other are hidden but can be selected); if not specified, all are shown by default
 #' @param ... more parameters passed on
 #'
 #' @return returns a pretty table formatted for html or latex
 #'
 #' @importFrom magrittr '%>%'
-#' @importFrom dplyr as_tibble
-#' @importFrom kableExtra add_indent
-#' @importFrom kableExtra row_spec
-#' @importFrom kableExtra kable
-#' @importFrom kableExtra kbl
-#' @importFrom kableExtra kable_classic
-#' @importFrom stringr str_starts
-#' @importFrom tableone CreateTableOne
+#' @importFrom DT datatable
 #'
 #' @export
 #'

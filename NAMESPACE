@@ -2,6 +2,7 @@
 
 export(format_datatable)
 export(format_table)
+importFrom(DT,datatable)
 importFrom(dplyr,as_tibble)
 importFrom(kableExtra,add_indent)
 importFrom(kableExtra,kable)
