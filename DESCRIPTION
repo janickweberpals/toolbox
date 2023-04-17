@@ -13,8 +13,12 @@ RoxygenNote: 7.2.3
 Imports: 
     dplyr,
     DT,
+    gt,
+    here,
     kableExtra,
+    knitr,
     magrittr,
     tableone,
-    stringr
+    stringr,
+    webshot2
 
