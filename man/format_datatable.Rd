@@ -19,7 +19,7 @@ format_datatable(
 
 \item{col_names}{character vector of column names}
 
-\item{cols_show}{character vector of columns to show (other are hidden but can be selected)}
+\item{cols_show}{character vector of columns to show (other are hidden but can be selected); if not specified, all are shown by default}
 
 \item{...}{more parameters passed on}
 }

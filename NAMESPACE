@@ -3,6 +3,7 @@
 export(format_datatable)
 export(format_gt)
 export(format_table)
+importFrom(DT,datatable)
 importFrom(dplyr,as_tibble)
 importFrom(gt,gtsave)
 importFrom(here,here)
