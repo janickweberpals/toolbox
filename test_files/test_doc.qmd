@@ -130,20 +130,33 @@ data %>%
 ```{r}
 #| label: tbl-test1
 #| tbl-cap: "Test 1"
-iris_gt <- head(iris) %>% gt::gt()
-format_gt(tbl_gt = iris_gt)
+iris_gt <- head(iris) %>% 
+  gt::gt()
+
+format_gt(tbl_gt = iris_gt, zoom = 1)
 ```
 
 ```{r}
 #| label: tbl-test2
-#| tbl-cap: Test 2
-iris_gt <- head(iris) %>% gt::gt()
-format_gt(tbl_gt = iris_gt, zoom = 3, dpi = 500)
+#| tbl-cap: "Test 2"
+iris_gt <- head(iris) %>% 
+  gt::gt()
+
+format_gt(tbl_gt = iris_gt, zoom = 1)
 ```
 
 ```{r}
 #| label: tbl-test3
-#| tbl-cap: Test 3
+#| tbl-cap: "Test 3"
+iris_gt <- head(iris) %>% 
+  gt::gt()
+
+format_gt(tbl_gt = iris_gt, zoom = 1, dpi = 500)
+```
+
+```{r}
+#| label: tbl-test4
+#| tbl-cap: Test 4
 #| out-width: 150%
 gt::gtsave(
   data = iris_gt,

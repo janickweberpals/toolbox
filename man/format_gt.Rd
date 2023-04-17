@@ -4,7 +4,7 @@
 \alias{format_gt}
 \title{Automated \code{\link[gt:gt]{gt()}} Markdown/Quarto output for html or pdf}
 \usage{
-format_gt(tbl_gt = NULL, img_file_path = NULL, zoom = 1, dpi = 300)
+format_gt(tbl_gt = NULL, img_file_path = NULL, zoom = 2, dpi = 300)
 }
 \arguments{
 \item{tbl_gt}{gt object}

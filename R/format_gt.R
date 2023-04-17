@@ -29,6 +29,7 @@ format_gt <- function(tbl_gt = NULL, # gt table object
                       ){
 
 
+  # only works at compiling stages of markdown/quarto documents
   if(!isTRUE(knitr::is_html_output()) & !isTRUE(knitr::is_latex_output())){
     message("This function considers only tables in Markdown or Quarto documents, not interactively created tables.")
   }
@@ -40,7 +41,10 @@ format_gt <- function(tbl_gt = NULL, # gt table object
 
   }
 
-  # pdf output
+  # pdf output is converted into an image
+  # and then displayed via knitr::include_graphics()
+
+  # first: where should image be stored?
   if(!knitr::is_html_output()){
 
     if(is.null(img_file_path)){
@@ -51,12 +55,14 @@ format_gt <- function(tbl_gt = NULL, # gt table object
 
     img_file_directory <- paste0(img_file_path, "/gt_tables")
 
-    if(!exists(img_file_directory)){
+    if(!dir.exists(img_file_directory)){
 
-      dir.create(img_file_directory, showWarnings = FALSE)
+      dir.create(img_file_directory)
 
     }
 
+
+    # save gtsave output as an image
     gt::gtsave(
       data = tbl_gt,
       filename = paste0(substitute(tbl_gt), ".png"),
@@ -64,6 +70,7 @@ format_gt <- function(tbl_gt = NULL, # gt table object
       zoom = zoom
       )
 
+    # "plot" table
     knitr::include_graphics(
       path = here::here(img_file_directory, paste0(substitute(tbl_gt), ".png")),
       dpi = dpi
