@@ -66,7 +66,7 @@ format_datatable <- function(data = NULL, # tableone object or final df
         ) ,
         list(
           extend = 'collection',
-          buttons = c('csv', 'excel', 'pdf'),
+          buttons = c('copy', 'csv', 'excel', 'pdf'),
           text = 'Download'
         )
       ),
