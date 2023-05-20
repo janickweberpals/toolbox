@@ -4,6 +4,7 @@
 #' @param col_bold should first column be printed bold
 #' @param font_size numeric, font size of table
 #' @param caption string, if table caption is desired
+#' @param html_font_size_x numeric, html table font size multiplier compared to font_size
 #' @param ... more parameters passed on
 #'
 #' @return returns a pretty table formatted for html or latex
@@ -24,6 +25,7 @@ format_table <- function(data = NULL, # tableone object or final df
                          col_bold = FALSE, # should first column be printed bold?
                          font_size = 10,
                          caption = NULL,
+                         html_font_size_x = 1.6, # html table font size multiplier compared to font_size
                          ... # html kbl additions
                          ){
 
@@ -83,7 +85,7 @@ format_table <- function(data = NULL, # tableone object or final df
 
       kableExtra::kable_classic(
         lightable_options = "hover",
-        font_size = font_size*1.6,
+        font_size = font_size*html_font_size_x,
         full_width = F,
         fixed_thead = TRUE,
         html_font = "Minion"

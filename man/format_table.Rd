@@ -9,6 +9,7 @@ format_table(
   col_bold = FALSE,
   font_size = 10,
   caption = NULL,
+  html_font_size_x = 1.6,
   ...
 )
 }
@@ -20,6 +21,8 @@ format_table(
 \item{font_size}{numeric, font size of table}
 
 \item{caption}{string, if table caption is desired}
+
+\item{html_font_size_x}{numeric, html table font size multiplier compared to font_size}
 
 \item{...}{more parameters passed on}
 }
