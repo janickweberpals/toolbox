@@ -5,7 +5,7 @@
 #' @param font_size numeric, font size of table
 #' @param caption string, if table caption is desired
 #' @param html_font_size_x numeric, html table font size multiplier compared to font_size
-#' @param ... more parameters passed on
+#' @param ... more parameters passed on to `tableone`
 #'
 #' @return returns a pretty table formatted for html or latex
 #'
@@ -26,7 +26,7 @@ format_table <- function(data = NULL, # tableone object or final df
                          font_size = 10,
                          caption = NULL,
                          html_font_size_x = 1.6, # html table font size multiplier compared to font_size
-                         ... # html kbl additions
+                         ... # tableone print additions
                          ){
 
   arguments <- list(...)
@@ -37,7 +37,8 @@ format_table <- function(data = NULL, # tableone object or final df
     table_tmp <- print(
       data,
       smd = TRUE,
-      printToggle = FALSE
+      printToggle = FALSE,
+      ...
       ) %>%
       dplyr::as_tibble(rownames = "Variable")
 
@@ -79,8 +80,7 @@ format_table <- function(data = NULL, # tableone object or final df
         booktabs = TRUE,
         longtable = TRUE,
         align = "l",
-        linesep = "",
-        ...
+        linesep = ""
         ) %>%
 
       kableExtra::kable_classic(

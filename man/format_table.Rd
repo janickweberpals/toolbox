@@ -24,7 +24,7 @@ format_table(
 
 \item{html_font_size_x}{numeric, html table font size multiplier compared to font_size}
 
-\item{...}{more parameters passed on}
+\item{...}{more parameters passed on to `tableone`}
 }
 \value{
 returns a pretty table formatted for html or latex
