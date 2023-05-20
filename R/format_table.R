@@ -21,13 +21,20 @@
 #' @export
 #'
 format_table <- function(data = NULL, # tableone object or final df
-                         col_bold = FALSE, # should first column be printed bold
+                         col_bold = FALSE, # should first column be printed bold?
                          font_size = 15,
                          caption = NULL,
                          ...
                          ){
 
   arguments <- list(...)
+
+  # if html
+  # if(knitr::is_html_output()){
+  #
+  #   lightable_options = "hover"
+  #
+  # }
 
   # checks
   if("TableOne" %in% class(data)){
@@ -36,60 +43,60 @@ format_table <- function(data = NULL, # tableone object or final df
       data,
       smd = TRUE,
       printToggle = FALSE
-    ) %>%
+      ) %>%
       dplyr::as_tibble(rownames = "Variable")
 
-  }else if("data.frame" %in% class(data)){
+    }else if("data.frame" %in% class(data)){
 
-    table_tmp <- as.data.frame(data)
+      table_tmp <- as.data.frame(data)
 
-  }else(
+    }else{
 
-    stop("data is not a TableOne or data.frame/tibble object")
+      stop("data is not a TableOne or data.frame/tibble object")
 
-  )
-
-
-  vec_indent <- as.numeric(which(stringr::str_starts(table_tmp$Variable, pattern = " ")==TRUE))
-  vec_bold <- as.numeric(which(stringr::str_starts(table_tmp$Variable, pattern = " ", negate = TRUE)==TRUE))
+      }
 
   # table call starts
   return_table <- table_tmp %>%
 
     kableExtra::kable(
-      format = "html",
+      caption = caption,
       booktabs = TRUE,
-      linesep = "",
       longtable = TRUE,
-      caption = caption
+      align = "l"
       ) %>%
 
     kableExtra::kable_classic(
-      lightable_options = "hover",
-      font_size = font_size,
-      full_width = FALSE,
-      fixed_thead = TRUE,
-      html_font = "Minion"
+      full_width = F
       ) %>%
 
-    # kableExtra::kable_styling(
-    #   latex_options = c("repeat_header"),
-    #   repeat_header_continued = "\\textit{(Continued on next page...)}"
-    #   ) %>%
-
-    # indentation of rows with categorical variables
-    kableExtra::add_indent(
-      vec_indent,
-      level_of_indent = 1,
-      all_cols = FALSE
+    kableExtra::kable_styling(
+      font_size = font_size,
+      latex_options = c("hold_position", "repeat_header")
       ) %>%
 
     # table header in bold font
     kableExtra::row_spec(0, bold = TRUE)
 
-  if(isTRUE(return_table)){
+  if("TableOne" %in% class(data)){
 
-    # first column bold
+    # add indentation if true
+    return_table <- return_table %>%
+      kableExtra::add_indent(
+        positions = as.numeric(which(stringr::str_starts(table_tmp$Variable, pattern = " ")==TRUE)),
+        level_of_indent = 1,
+        all_cols = FALSE
+        )
+
+    }
+
+
+  # first column bold
+  if(isTRUE(col_bold)){
+
+    vec_bold <- as.numeric(which(stringr::str_starts(table_tmp$Variable, pattern = " ", negate = TRUE)==TRUE))
+
+
     return_table <- return_table %>%
       kableExtra::column_spec(1:1, bold = TRUE)
 

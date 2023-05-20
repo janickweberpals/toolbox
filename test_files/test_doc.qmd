@@ -52,25 +52,38 @@ devtools::load_all()
 ## Normal data
 
 ```{r}
-#| tbl-cap: Test table 1
+#| label: tbl-format_normal
 data <- dplyr::sample_n(iris, 10)
 
 format_table(
   data = data,
-  font_size = 20
+  font_size = 20,
+  caption = "Normal data table"
   )
 ```
 
 ## Table 1 with `format_table`
 
 ```{r}
+#| label: tbl-tbl1
 tbl1 <- tableone::CreateTableOne(
   data = iris
   )
 
 format_table(
   data = tbl1,
-  font_size = 20
+  font_size = 20,
+  caption = "Table 1 table"
+  )
+```
+
+## Long table
+
+```{r}
+#| label: long-table
+format_table(
+  data = iris,
+  caption = "Long table"
   )
 ```
 
