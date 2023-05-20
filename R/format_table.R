@@ -22,19 +22,12 @@
 #'
 format_table <- function(data = NULL, # tableone object or final df
                          col_bold = FALSE, # should first column be printed bold?
-                         font_size = 15,
+                         font_size = 10,
                          caption = NULL,
-                         ...
+                         ... # html kbl additions
                          ){
 
   arguments <- list(...)
-
-  # if html
-  # if(knitr::is_html_output()){
-  #
-  #   lightable_options = "hover"
-  #
-  # }
 
   # checks
   if("TableOne" %in% class(data)){
@@ -56,26 +49,49 @@ format_table <- function(data = NULL, # tableone object or final df
 
       }
 
-  # table call starts
+  # pdf table call starts
   return_table <- table_tmp %>%
 
     kableExtra::kable(
+      format = "latex",
       caption = caption,
       booktabs = TRUE,
       longtable = TRUE,
-      align = "l"
-      ) %>%
-
-    kableExtra::kable_classic(
-      full_width = F
+      align = "l",
+      linesep = ""
       ) %>%
 
     kableExtra::kable_styling(
       font_size = font_size,
-      latex_options = c("hold_position", "repeat_header")
-      ) %>%
+      latex_options = c("repeat_header", "scale down")
+      )
 
-    # table header in bold font
+  # if html
+  if(knitr::is_html_output()){
+
+    return_table <- table_tmp %>%
+
+      kableExtra::kable(
+        format = "html",
+        caption = caption,
+        booktabs = TRUE,
+        longtable = TRUE,
+        align = "l",
+        linesep = "",
+        ...
+        ) %>%
+
+      kableExtra::kable_classic(
+        lightable_options = "hover",
+        font_size = font_size*1.6,
+        full_width = F,
+        fixed_thead = TRUE,
+        html_font = "Minion"
+        )
+  }
+
+  # table header in bold font
+  return_table <- return_table %>%
     kableExtra::row_spec(0, bold = TRUE)
 
   if("TableOne" %in% class(data)){
@@ -86,23 +102,21 @@ format_table <- function(data = NULL, # tableone object or final df
         positions = as.numeric(which(stringr::str_starts(table_tmp$Variable, pattern = " ")==TRUE)),
         level_of_indent = 1,
         all_cols = FALSE
-        )
+      )
 
-    }
-
+  }
 
   # first column bold
   if(isTRUE(col_bold)){
 
     vec_bold <- as.numeric(which(stringr::str_starts(table_tmp$Variable, pattern = " ", negate = TRUE)==TRUE))
 
-
     return_table <- return_table %>%
       kableExtra::column_spec(1:1, bold = TRUE)
 
-    }
+  }
 
   return(return_table)
 
 }
-# END
+

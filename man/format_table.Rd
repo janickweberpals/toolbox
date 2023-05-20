@@ -7,7 +7,7 @@
 format_table(
   data = NULL,
   col_bold = FALSE,
-  font_size = 15,
+  font_size = 10,
   caption = NULL,
   ...
 )

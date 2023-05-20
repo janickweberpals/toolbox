@@ -52,12 +52,10 @@ devtools::load_all()
 ## Normal data
 
 ```{r}
-#| label: tbl-format_normal
 data <- dplyr::sample_n(iris, 10)
 
 format_table(
   data = data,
-  font_size = 20,
   caption = "Normal data table"
   )
 ```
@@ -65,24 +63,22 @@ format_table(
 ## Table 1 with `format_table`
 
 ```{r}
-#| label: tbl-tbl1
 tbl1 <- tableone::CreateTableOne(
   data = iris
   )
 
 format_table(
   data = tbl1,
-  font_size = 20,
-  caption = "Table 1 table"
+  caption = "Table 1 example"
   )
 ```
 
 ## Long table
 
 ```{r}
-#| label: long-table
 format_table(
   data = iris,
+  longtable = TRUE,
   caption = "Long table"
   )
 ```
@@ -94,87 +90,42 @@ format_table(
 ## Datatable without column filter
 
 ```{r}
-#| tbl-colwidths: auto
+#| label: tbl-dr-table
+#| tbl-cap: "DT caption test."
 data %>% 
-  format_datatable()
+  format_datatable(caption = "Datatable test.")
 ```
 
 ## Datatable with column filter
 
 ```{r}
+#| label: tbl-dr-table2
+#| tbl-cap: "DT caption test."
 data %>% 
-  format_datatable(cols_show = c("Species", "Sepal.Width"))
+  format_datatable(cols_show = c("Species", "Sepal.Width"), caption = "Datatable test.")
 ```
 
 :::
 
-# Standard functions
+# gt
 
-## kableExtra (latex test)
+## Normal gt table
 
 ```{r}
-
-data <- dplyr::sample_n(iris, 80)
-
+#| label: tbl-gt-table
+#| tbl-cap: "gt caption test."
 data %>% 
-  kableExtra:: kbl(
-    booktabs = TRUE,
-    longtable = TRUE,
-    caption = "Test table 3"
-  ) %>% 
-  kableExtra::kable_styling(
-    latex_options = c("repeat_header"),
-    repeat_header_continued = "\\textit{(Continued on next page...)}",
-    )
+  gt::gt() 
 ```
 
-## gt
-
-**Table 4.** Table caption...
+## `format_gt` test
 
 ```{r}
-#| echo: false
-data %>% 
-  gt::gt()
-```
-
-# `format_gt` test
-
-```{r}
-#| label: tbl-test1
-#| tbl-cap: "Test 1"
+#| label: tbl-gt-fromat-table
+#| tbl-cap: "format gt caption test."
 iris_gt <- head(iris) %>% 
-  gt::gt()
+  gt::gt() %>% 
+  gt::tab_header(title = "gt test")
 
-format_gt(tbl_gt = iris_gt, zoom = 1)
+format_gt(tbl_gt = iris_gt, zoom = 3)
 ```
-
-```{r}
-#| label: tbl-test2
-#| tbl-cap: "Test 2"
-iris_gt <- head(iris) %>% 
-  gt::gt()
-
-format_gt(tbl_gt = iris_gt, zoom = 1)
-```
-
-```{r}
-#| label: tbl-test3
-#| tbl-cap: "Test 3"
-iris_gt <- head(iris) %>% 
-  gt::gt()
-
-format_gt(tbl_gt = iris_gt, zoom = 1, dpi = 500)
-```
-
-```{r}
-#| label: tbl-test4
-#| tbl-cap: Test 4
-#| out-width: 150%
-gt::gtsave(
-  data = iris_gt,
-  filename = "iris_gt.docx",
-  path = here::here("gt_tables")
-  )
-```
-
