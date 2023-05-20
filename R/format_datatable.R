@@ -14,7 +14,7 @@
 #' @export
 #'
 format_datatable <- function(data = NULL, # tableone object or final df
-                             caption = "Table.",
+                             caption = NULL, # table caption
                              col_names = NULL,
                              cols_show = NULL, # character vector of columns that should should be shown, all others are hidden
                              ...
@@ -48,6 +48,7 @@ format_datatable <- function(data = NULL, # tableone object or final df
 
   tbl <- DT::datatable(
     data,
+    caption = caption,
     rownames = FALSE,
     filter = "top",
     extensions = 'Buttons',

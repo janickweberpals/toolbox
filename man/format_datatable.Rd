@@ -6,7 +6,7 @@
 \usage{
 format_datatable(
   data = NULL,
-  caption = "Table.",
+  caption = NULL,
   col_names = NULL,
   cols_show = NULL,
   ...
