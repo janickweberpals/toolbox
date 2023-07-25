@@ -96,6 +96,16 @@ data %>%
   format_datatable(caption = "Datatable test.")
 ```
 
+## Datatable without column filter - small
+
+```{r}
+#| label: tbl-dr-table_small
+#| tbl-cap: "DT caption test small."
+data %>% 
+  format_datatable(caption = "Datatable test.") %>% 
+   DT::formatStyle(columns = colnames(iris), fontSize = '75%')
+```
+
 ## Datatable with column filter
 
 ```{r}

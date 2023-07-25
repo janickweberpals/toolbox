@@ -53,7 +53,7 @@ format_datatable <- function(data = NULL, # tableone object or final df
     filter = "top",
     extensions = 'Buttons',
     options = list(
-      autoWidth = TRUE,
+      #autoWidth = TRUE,
       dom = 'Bfrtip',
       buttons = list(
         list(
